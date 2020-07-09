@@ -8,6 +8,8 @@ package Resousers;
 import TDA.CircularLinkedList;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -15,21 +17,53 @@ import java.util.Scanner;
  * @author soyjosephavila
  */
 public class MediaView {
-    CircularLinkedList videos = new CircularLinkedList();
+
+  
+   
+   
     
     
     
     
     
-    public void readFileOfVideo() throws FileNotFoundException{
+    public static CircularLinkedList readFileOfVideo( ) {
+        CircularLinkedList<String> videosList= new CircularLinkedList<>();
         String fileVideo="./videos.txt";
-        Scanner sc= new Scanner(new File(fileVideo) );
-        
-        
-        
-        
     
-    
+        File fp = new File(fileVideo);
+        try {
+        Scanner sc = new Scanner(fp); 
+        while (sc.hasNextLine()) {
+            System.out.println("Reading........");
+            String line = sc.nextLine();
+           videosList.addLast(line);}sc.close();
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return videosList;
+    }  
+     public static void addVideo(String nombreFichero,String linea){
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter(nombreFichero,true);
+            pw = new PrintWriter(fichero);        
+            pw.println(linea);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero)
+                    fichero.close();
+            }catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
     
+    
+    
 }
+
