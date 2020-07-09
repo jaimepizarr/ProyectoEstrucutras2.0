@@ -5,138 +5,217 @@
  */
 package TDA;
 
+import java.util.Iterator;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+
+
+
 /**
  *
- * @author soyjosephavila
+ * @josephavila
  */
-public class CircularLinkedList{
-	static class Node{
-		int key;    //Data value
-		Node next;  //points to next element in the list.
+public class CircularLinkedList<E> implements List<E>,Iterable<E>{
+    private Node<E> last;
+    private int current;
+    public CircularLinkedList()
+    {
+        last = null;
+        current = 0;
+    }
 
-		public Node(int data){
-			this.key=data;
-			this.next=null;
-		}
+    @Override
+    public Iterator<E> iterator() {
+        return null;
+    }
 
-	}
+    private class Node<E>
+    {
+        private E data;
+        private Node<E> next;
+        
+        public Node(E data)
+        {
+            this.data = data;
+            this.next = null;
+        }        
+    }
 
-	public Node head;   //head of the list.
+    @Override
+    public boolean addFirst(E e) {
+        Node<E> n = new Node<>(e);
+        if(isEmpty()){
+            last = n;
+            last.next = last;
+        }  else {
+            n.next = last.next;
+            last.next = n;
+        }
+        current++;
 
-	public CircularLinkedList(){
-		head=null;
-	}
+        return true;
+    }
 
-     public void pushFront(int number){
-		System.out.println("Inserting data at front : " + number);
-		Node node = new Node(number);
-		if(head==null){
-			head=node;
-			node.next=head;
-			return;
-		}
-		
-	
-		if(head.next==head){
-			node.next=head;
-			head=node;
-			node.next.next=head; 
-			return;
-		}
-		
-		Node temp=head;
-		while(temp.next!=head){
-			temp=temp.next;
-		}
 
-		node.next=head;
-		head=node;
-		temp.next=head;  
-	}
-		
-		
+    @Override
+    public boolean addLast(E e) {
+        Node<E> n = new Node<>(e);
+        if(isEmpty()){
+            last = n;
+            last.next = last;
+        }
+        else
+        {
+            n.next = last.next;
+            last.next = n;
+            last = n;
+        }
+        current++;
+        return true;
+    }
 
-	 public void pushBack(int number){
-		System.out.println("Inserting data at back  : " + number);
-		Node node = new Node(number);
-	
-		if(head==null){
-			head=node;
-			node.next=head;
-			return;
-		} 		
-	
-		//if list contains only single element.	
-		if(head.next==head){
-			head.next=node;
-			node.next=head;
-			return;
-		}
-		Node temp = head;
-		while(temp.next!=head){
-			temp=temp.next;
-		}
-		temp.next=node;
-		node.next=head;
-	}
+    @Override
+    public E getFirst() {
+       return last.next.data;
+    }
 
-	
-	public  void popFront(){
-		System.out.print("PopFront Operation : ");
-		if(head==null){
-			System.out.println("Empty List.");
-			return;
-		}
+    @Override
+    public E getLast() {
+         return last.data;
+    }
 
-		if(head.next==head){
-			head=null;
-			System.out.println("Successfull.");
-			return;
-		}
-		
-		Node temp=head;
-		while(temp.next!=head){
-			temp=temp.next;
-		}
-		head=head.next;
-		temp.next=head;  
-		System.out.println("Successfull.");
-	}
+    @Override
+    public int indexOf(E e) {
+        if(e==null ){
+            return -1;
+        }
+        int count=0;
+        for (Node q = last.next; q!=last; q=q.next){
+            if(q.data.equals(e)){
+                return count;
+            }
+            count++;
+        }
+        return -1;
+    }
 
-	//function to remove elements from the back of the list.
-	public  void popBack(){
-		System.out.print("PopBack Operation  : ");
-		if(head==null){
-			System.out.println("Empty List.");
-			return;
-		}
-		
-		if(head.next==head){
-			head=null;
-			System.out.println("Successfull.");
-			return;
-		}
+    @Override
+    public int size() {
+       return current;
+    }
 
-		Node temp=head;
-		while(temp.next.next!=head){
-			temp=temp.next;
-		}
-		temp.next=temp.next.next; 
-	}
+    @Override
+    public boolean removeLast() {
+        if(isEmpty()) return false;
+        else if(last == last.next){
+            last.data=null; // help GC
+            last =last.next= null;
+        }
+        else
+        {
+            Node<E> prev = getPrevious(last);
+            last.data = null; // help GC
+            prev.next = last.next;
+            last = prev;
+        }
+        current --;
+        return true;
+    }
+    private Node<E> getPrevious(Node<E> p)
+    {
+        if(p == last.next) return last;
+        Node<E> q =last.next;
+        while(q!=null && q.next!=p)
+            q = q.next;
+        return q;
+    }
 
-	
-	public  void display(){
-		if(head==null){
-			System.out.println("Empty List.");
-			return;
-		}
+    @Override
+    public boolean removeFirst() {
+        if(isEmpty()) return false;
+        if( last== last.next)
+        {
+            last.data = null;//help GC
+            last.next = last = null;
 
-		Node temp=head;
-		while(temp.next!=head){
-			System.out.print(temp.key + " ");
-			temp=temp.next;
-		}
-		System.out.println(temp.key);
-	}
+        }
+        else
+        {
+            Node<E> p = last.next;
+            last.next = p.next;
+            p.data = null;//help GC
+            p.next = null;
+        }
+        current--;
+        return true;
+    }
+
+    @Override
+    public boolean insert(int index, E e) {
+        if(e==null||index<0||index>current)    return false;
+        if(index==0) return addFirst(e);
+        if(index==current) return addLast(e);
+        Node<E> p= new Node<>(e);
+        Node<E> n =getNode(index-1);
+        p.next=n.next;
+        n.next=p;
+        current++;
+        return true;
+    }
+    private Node<E> getNode(int index){
+        if(index<0 ||index>=current) return null;
+        if(index==current-1) return last;
+         Node<E> mochilero=last.next;
+
+        for(int i=0;i<index;i++){
+            mochilero=mochilero.next;
+
+        }
+        return mochilero;
+    }
+     @Override
+    public boolean set(int index, E e) {
+        if(e==null||index<0||index>=current) return false;
+        Node<E> n = getNode(index);
+        n.data=e;
+        return true;
+    }
+    @Override
+    public boolean isEmpty() {
+        return current==0;
+    }
+     @Override
+    public E get(int index) {
+        return  getNode(index).data;
+    }
+     @Override
+    public boolean contains(E e) {
+        Node<E> p = last.next;
+        do{
+            if(p.data.equals(e))
+                return true;
+            p=p.next;
+        }while(p!=last.next);
+        return false;
+    }
+     @Override
+    public boolean remove(int index) {
+        if(index<0||index>=current) return false;
+        if(index==0) return removeFirst();
+        if(index==current-1)  return removeLast();
+
+
+        Node<E> n=getNode(index-1);
+        Node<E> p=n.next;
+        p.data=null;//HELP GC
+        n.next=p.next;
+        p.next=null;
+        current--;
+        return true;
+    }
+
+
 }
-
