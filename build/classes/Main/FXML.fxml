@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="894.0" type="BorderPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.FXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.FXMLController">
    <top>
       <AnchorPane prefHeight="40.0" prefWidth="689.0" style="-fx-background-color: #63CBEC#63CBEC;" BorderPane.alignment="CENTER" />
    </top>
@@ -41,7 +41,6 @@
    <center>
       <Pane prefHeight="521.0" prefWidth="481.0" BorderPane.alignment="CENTER">
          <children>
-            <MediaView fitHeight="200.0" fitWidth="200.0" layoutX="129.0" layoutY="161.0" />
             <ImageView fitHeight="50.0" fitWidth="170.0" layoutX="21.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/logo.jpg" />
@@ -52,8 +51,8 @@
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <Pane id="panelVideos" fx:id="panelVideo" layoutX="14.0" layoutY="70.0" prefHeight="413.0" prefWidth="491.0" />
+            <MediaView id="Videos" fx:id="mediaView" fitHeight="435.0" fitWidth="516.0" layoutY="71.0" />
          </children>
       </Pane>
    </center>
-</fx:root>
+</BorderPane>
