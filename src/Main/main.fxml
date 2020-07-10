@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="738.0" prefWidth="1113.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.AtencionPacienteController">
+    <stylesheets>
+        <URL value="@atencionpaciente.css" />
+    </stylesheets>
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#58aad6" height="190.0" layoutX="14.0" layoutY="120.0" stroke="WHITE" strokeType="INSIDE" width="378.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ce553d" height="190.0" layoutX="436.0" layoutY="118.0" stroke="WHITE" strokeType="INSIDE" width="378.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8a136" height="190.0" layoutX="846.0" layoutY="118.0" strokeType="INSIDE" width="244.0">
+         <stroke>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#2c2929" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </stroke>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#387183" height="188.0" layoutX="12.0" layoutY="120.0" stroke="#58aad6" strokeType="INSIDE" width="54.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ba4d37" height="188.0" layoutX="435.0" layoutY="119.0" stroke="#ba4d37" strokeType="INSIDE" width="54.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#60b9d3" height="54.0" layoutX="20.0" layoutY="24.0" stroke="#60b9d3" strokeType="INSIDE" width="1066.0" />
+      <Text fill="WHITE" layoutX="374.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistemas turnos" wrappingWidth="423.3641357421875">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="105.0" fitWidth="105.0" layoutX="285.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/main/doctor.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="86.0" layoutX="726.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/main/medical-records.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="92.0" fitWidth="84.0" layoutX="990.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/main/calendar.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="363.0" layoutX="16.0" layoutY="325.0" stroke="#c9c9c9" strokeType="INSIDE" width="1074.0" />
+      <Line endX="-99.99993896484375" endY="261.17095947265625" layoutX="656.0" layoutY="359.0" startX="-100.0" />
+      <Text fill="#6f6c6c" layoutX="143.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Pacientes" AnchorPane.bottomAnchor="356.9375" AnchorPane.leftAnchor="143.0" AnchorPane.topAnchor="352.796875">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#6f6c6c" layoutX="731.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Doctores">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField layoutX="107.0" layoutY="394.0" prefHeight="27.0" prefWidth="287.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
+      <TextField layoutX="107.0" layoutY="442.0" prefHeight="27.0" prefWidth="287.0" promptText="Apellido" stylesheets="@../css/textfield.css" />
+      <TextField layoutX="108.0" layoutY="493.0" prefHeight="27.0" prefWidth="287.0" promptText="Edad" stylesheets="@../css/textfield.css" />
+      <ChoiceBox layoutX="110.0" layoutY="540.0" prefHeight="27.0" prefWidth="288.0" style="-fx-background-color: #F4F4F4;" stylesheets="@../css/textfield.css" />
+      <ChoiceBox layoutX="109.0" layoutY="582.0" prefHeight="27.0" prefWidth="288.0" style="-fx-background-color: #F4F4F4;" stylesheets="@../css/textfield.css" />
+      <ImageView fitHeight="41.0" fitWidth="32.0" layoutX="63.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons/gender.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="63.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons/cough.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="103.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doctores Registrados">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="523.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacientes Atendidos">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

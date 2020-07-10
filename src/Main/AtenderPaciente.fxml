@@ -25,6 +25,11 @@
         <URL value="@atencionpaciente.css" />
     </stylesheets>
    <children>
+      <ImageView fitHeight="679.0" fitWidth="662.0" layoutX="238.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/atention.png" />
+         </image>
+      </ImageView>
       <GridPane alignment="CENTER_LEFT" layoutX="28.0" layoutY="93.0" prefHeight="132.0" prefWidth="1060.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="527.6666870117188" minWidth="10.0" prefWidth="527.6666870117188" />
@@ -178,11 +183,6 @@
             <Font name="Times New Roman" size="25.0" />
          </font>
       </Text>
-      <ImageView fitHeight="88.0" fitWidth="207.0" layoutX="898.0" layoutY="592.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/logo.jpg" />
-         </image>
-      </ImageView>
       <Button layoutX="482.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="172.0" style="-fx-background-color: #E6E6FA; -fx-border-color: D0BEA7; -fx-border-radius: 20;" stylesheets="@atencionpaciente.css" text="Guardar">
          <font>
             <Font name="Serif Regular" size="23.0" />
@@ -196,5 +196,10 @@
             <Font name="Century" size="43.0" />
          </font>
       </Text>
+      <ImageView fitHeight="62.0" fitWidth="260.0" layoutX="829.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logomspnew.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
