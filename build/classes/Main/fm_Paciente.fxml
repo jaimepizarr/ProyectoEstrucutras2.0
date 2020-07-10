@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" focusTraversable="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Formularios.Fm_PacienteController">
+    <stylesheets>
+        <URL value="@fm_paciente.css" />
+    </stylesheets>
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/FondoFormulario.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="52.0" layoutY="56.0" prefHeight="305.0" prefWidth="497.0" style="-fx-background-color: #63CBEC#63CBEC;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <children>
+            <VBox layoutX="207.0" layoutY="59.0" prefHeight="214.0" prefWidth="179.0">
+               <children>
+                  <TextField fx:id="nombrePaciente" prefHeight="28.0" prefWidth="134.0" style="-fx-background-color: #E6E6FA;" />
+                  <TextField fx:id="apellidoPaciente" prefHeight="33.0" prefWidth="179.0" style="-fx-background-color: #E6E6FA;" translateY="10.0" />
+                  <TextField fx:id="edadPaciente" prefHeight="31.0" prefWidth="179.0" style="-fx-background-color: #E6E6FA;" translateY="22.0" />
+                  <ComboBox fx:id="generoPaciente" prefHeight="29.0" prefWidth="181.0" style="-fx-background-color: #E6E6FA;" translateY="35.0" />
+                  <ComboBox fx:id="sintomaPaciente" prefHeight="25.0" prefWidth="184.0" style="-fx-background-color: #E6E6FA;" translateY="45.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="95.0" layoutY="65.0" prefHeight="183.0" prefWidth="112.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre: " wrappingWidth="111.673828125">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido: " translateY="12.0" wrappingWidth="111.673828125">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edad: " translateY="20.0" wrappingWidth="111.673828125">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Género: " translateY="30.0" wrappingWidth="111.673828125">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Síntoma: " translateY="40.0" wrappingWidth="111.673828125">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <Text fill="#0e3b3c" layoutX="71.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingresar Paciente" wrappingWidth="383.13671875">
+               <font>
+                  <Font name="Perpetua" size="52.0" />
+               </font>
+            </Text>
+            <Button fx:id="guardar" defaultButton="true" layoutX="178.0" layoutY="260.0" mnemonicParsing="false" opacity="0.82" prefHeight="39.0" prefWidth="91.0" style="-fx-background-color: #696969;" text="Guardar" textFill="#f8f8f8" textOverrun="LEADING_ELLIPSIS">
+               <font>
+                  <Font name="Times New Roman" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <effect>
+                  <Blend />
+               </effect>
+            </Button>
+         </children>
+      </Pane>
+      <MenuBar layoutX="-1.0" layoutY="-4.0" prefHeight="31.0" prefWidth="600.0" style="-fx-background-color: #E6E6FA;">
+        <menus>
+          <Menu mnemonicParsing="false" text="Ventana Turnos" />
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </MenuBar>
+   </children>
+   <cursor>
+      <Cursor fx:constant="MOVE" />
+   </cursor>
+</AnchorPane>
