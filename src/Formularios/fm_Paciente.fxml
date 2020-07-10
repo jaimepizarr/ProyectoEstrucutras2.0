@@ -33,7 +33,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
          <children>
-            <VBox layoutX="149.0" layoutY="60.0" prefHeight="214.0" prefWidth="179.0">
+            <VBox layoutX="136.0" layoutY="61.0" prefHeight="214.0" prefWidth="179.0">
                <children>
                   <TextField fx:id="nombrePaciente" prefHeight="28.0" prefWidth="134.0" style="-fx-background-color: #E6E6FA;" />
                   <TextField fx:id="apellidoPaciente" prefHeight="33.0" prefWidth="179.0" style="-fx-background-color: #E6E6FA;" translateY="10.0" />
@@ -42,31 +42,31 @@
                   <ComboBox fx:id="sintomaPaciente" prefHeight="25.0" prefWidth="184.0" style="-fx-background-color: #E6E6FA;" translateY="45.0" />
                </children>
             </VBox>
-            <VBox layoutX="29.0" layoutY="61.0" prefHeight="183.0" prefWidth="112.0">
+            <VBox layoutX="52.0" layoutY="61.0" prefHeight="183.0" prefWidth="112.0" spacing="9.0">
                <children>
                   <Text fill="#00392e" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre: " wrappingWidth="111.673828125">
                      <font>
-                        <Font name="Times New Roman" size="24.0" />
+                        <Font name="Times New Roman" size="20.0" />
                      </font>
                   </Text>
                   <Text fill="#00392e" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido: " translateY="12.0" wrappingWidth="111.673828125">
                      <font>
-                        <Font name="Times New Roman" size="24.0" />
+                        <Font name="Times New Roman" size="20.0" />
                      </font>
                   </Text>
                   <Text fill="#00392e" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad: " translateY="20.0" wrappingWidth="111.673828125">
                      <font>
-                        <Font name="Times New Roman" size="24.0" />
+                        <Font name="Times New Roman" size="20.0" />
                      </font>
                   </Text>
                   <Text fill="#00392e" strokeType="OUTSIDE" strokeWidth="0.0" text="Género: " translateY="30.0" wrappingWidth="111.673828125">
                      <font>
-                        <Font name="Times New Roman" size="24.0" />
+                        <Font name="Times New Roman" size="20.0" />
                      </font>
                   </Text>
                   <Text fill="#00392e" strokeType="OUTSIDE" strokeWidth="0.0" text="Síntoma: " translateY="40.0" wrappingWidth="111.673828125">
                      <font>
-                        <Font name="Times New Roman" size="24.0" />
+                        <Font name="Times New Roman" size="20.0" />
                      </font>
                   </Text>
                </children>
