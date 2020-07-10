@@ -5,7 +5,11 @@
  */
 package ComponentesSistema;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  *
@@ -36,19 +40,25 @@ public class Sintoma {
         this.prioridad = prioridad;
     }
     
-    public ArrayList<Sintoma> leerArchivo(String txt){
-        return null;
-  
+    public static LinkedList<Sintoma> leerArchivo(String txt){
+        LinkedList<Sintoma> sintomas = new LinkedList<>();
+        try(BufferedReader br = new BufferedReader(new FileReader(txt))){
+            String line;
+            while((line = br.readLine())!= null){
+                String[] partes = line.strip().split("\\|");
+                Sintoma s = new Sintoma(partes[0],Integer.parseInt(partes[1]));
+                sintomas.add(s);
+            }
+        }catch(IOException ex){
+            
+        }
+        return sintomas;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Sintoma{" + "nombre=" + nombre + ", prioridad=" + prioridad + '}';
+    }
     
     
     
