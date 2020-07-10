@@ -28,7 +28,7 @@
             <Image url="@../images/FondoFormulario.jpg" />
          </image>
       </ImageView>
-      <Pane layoutX="110.0" layoutY="54.0" prefHeight="305.0" prefWidth="351.0" style="-fx-background-color: #63CBEC#63CBEC;">
+      <Pane layoutX="124.0" layoutY="54.0" prefHeight="305.0" prefWidth="351.0" style="-fx-background-color: #63CBEC#63CBEC;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -39,7 +39,7 @@
                   <TextField fx:id="apellidoPaciente" prefHeight="33.0" prefWidth="179.0" style="-fx-background-color: #E6E6FA;" translateY="10.0" />
                   <TextField fx:id="edadPaciente" prefHeight="31.0" prefWidth="179.0" style="-fx-background-color: #E6E6FA;" translateY="22.0" />
                   <ComboBox fx:id="generoPaciente" prefHeight="29.0" prefWidth="181.0" style="-fx-background-color: #E6E6FA;" translateY="35.0" />
-                  <ComboBox fx:id="sintomaPaciente" prefHeight="25.0" prefWidth="184.0" style="-fx-background-color: #E6E6FA;" translateY="45.0" />
+                  <ComboBox fx:id="sintomaPaciente" editable="true" prefHeight="25.0" prefWidth="184.0" style="-fx-background-color: #E6E6FA;" translateY="45.0" />
                </children>
             </VBox>
             <VBox layoutX="52.0" layoutY="61.0" prefHeight="183.0" prefWidth="112.0" spacing="9.0">
@@ -71,7 +71,7 @@
                   </Text>
                </children>
             </VBox>
-            <Button fx:id="guardar" defaultButton="true" layoutX="118.0" layoutY="266.0" mnemonicParsing="false" opacity="0.82" prefHeight="39.0" prefWidth="91.0" style="-fx-background-color: #008080;" text="Guardar" textFill="#f8f8f8" textOverrun="LEADING_ELLIPSIS">
+            <Button fx:id="guardar" defaultButton="true" layoutX="130.0" layoutY="266.0" mnemonicParsing="false" onAction="#guardarPaciente" opacity="0.82" prefHeight="39.0" prefWidth="91.0" style="-fx-background-color: #008080;" text="Guardar" textFill="#f8f8f8" textOverrun="LEADING_ELLIPSIS">
                <font>
                   <Font name="Comic Sans MS" size="17.0" />
                </font>
