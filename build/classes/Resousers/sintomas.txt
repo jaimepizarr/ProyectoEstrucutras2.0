@@ -1,1 +1,29 @@
-
+falta de aire|0
+Resfrio|3
+Tos|3
+Fiebre|2
+Dolor de corazon|0
+Vomitos reiterados|0
+Voz ronca|4
+Hincazon leve|4
+Opresion en el pecho|1
+Hinchazon de lengua o boca|1
+Desmayos|0
+Estornudos|4
+Cansancio|5
+Agotamiento fisico|5
+Perdida de apetito|4
+Convulsiones|0
+Pulso debil|0
+Enrochamiento de piel|2
+Mareo|2
+Nausas leves|3
+Picazon nazal|4
+Enrojecimiento ocular|2
+Dolor muscular|3
+Dificultad al caminar|3
+Taquicardia|1
+Sangrado por nariz y encias|1
+Dolor de cabeza|3
+Perdida de memoria|0
+Fatiga|4

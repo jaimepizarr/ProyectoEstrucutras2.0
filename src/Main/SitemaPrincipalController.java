@@ -13,7 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.media.MediaView;
 
-public class FXMLController {
+public class SitemaPrincipalController {
 
     @FXML
     private ResourceBundle resources;
@@ -39,12 +39,13 @@ public class FXMLController {
         assert mediaView != null : "fx:id=\"mediaView\" was not injected: check your FXML file 'FXML.fxml'.";
         colTurno.setCellValueFactory(new PropertyValueFactory("turno"));
         colPuesto.setCellValueFactory(new PropertyValueFactory("puesto"));
-    }
+    }}
     
-    private void asignarPuestoATurno(){
+   /* private void asignarPuestoATurno(){
         while(tableList.size()!=puestos.size()){
             Turno t = turnos.poll();
             
         }
     }
 }
+*/

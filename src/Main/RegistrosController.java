@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Formularios;
+package Main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author USUARIO
  */
-public class Fm_PuestoController implements Initializable {
+public class RegistrosController implements Initializable {
 
     /**
      * Initializes the controller class.
