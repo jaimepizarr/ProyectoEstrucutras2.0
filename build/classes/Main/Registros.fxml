@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="738.0" prefWidth="1113.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.AtencionPacienteController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1009.0" prefWidth="1113.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.RegistrosController">
     <stylesheets>
         <URL value="@atencionpaciente.css" />
     </stylesheets>
@@ -55,22 +56,17 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="363.0" layoutX="16.0" layoutY="325.0" stroke="#c9c9c9" strokeType="INSIDE" width="1074.0" />
-      <Line endX="-99.99993896484375" endY="261.17095947265625" layoutX="656.0" layoutY="359.0" startX="-100.0" />
-      <Text fill="#6f6c6c" layoutX="143.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Pacientes" AnchorPane.bottomAnchor="356.9375" AnchorPane.leftAnchor="143.0" AnchorPane.topAnchor="352.796875">
+      <Line endX="-100.0" endY="299.0" layoutX="656.0" layoutY="359.0" startX="-100.0" />
+      <Text fill="#6f6c6c" layoutX="114.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Pacientes" wrappingWidth="280.92578125" AnchorPane.bottomAnchor="628.5625" AnchorPane.leftAnchor="114.0" AnchorPane.topAnchor="349.880859375">
          <font>
-            <Font size="24.0" />
+            <Font name="Sylfaen" size="30.0" />
          </font>
       </Text>
-      <Text fill="#6f6c6c" layoutX="731.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Doctores">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <TextField layoutX="107.0" layoutY="394.0" prefHeight="27.0" prefWidth="287.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
-      <TextField layoutX="107.0" layoutY="442.0" prefHeight="27.0" prefWidth="287.0" promptText="Apellido" stylesheets="@../css/textfield.css" />
-      <TextField layoutX="108.0" layoutY="493.0" prefHeight="27.0" prefWidth="287.0" promptText="Edad" stylesheets="@../css/textfield.css" />
-      <ChoiceBox layoutX="110.0" layoutY="540.0" prefHeight="27.0" prefWidth="288.0" style="-fx-background-color: #F4F4F4;" stylesheets="@../css/textfield.css" />
-      <ChoiceBox layoutX="109.0" layoutY="582.0" prefHeight="27.0" prefWidth="288.0" style="-fx-background-color: #F4F4F4;" stylesheets="@../css/textfield.css" />
+      <TextField fx:id="nombrePaciente" layoutX="107.0" layoutY="394.0" prefHeight="27.0" prefWidth="287.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
+      <TextField fx:id="apellidoPaciente" layoutX="107.0" layoutY="442.0" prefHeight="27.0" prefWidth="287.0" promptText="Apellido" stylesheets="@../css/textfield.css" />
+      <TextField fx:id="edadPaciente" layoutX="108.0" layoutY="493.0" prefHeight="27.0" prefWidth="287.0" promptText="Edad" stylesheets="@../css/textfield.css" />
+      <ChoiceBox fx:id="genero" layoutX="110.0" layoutY="540.0" prefHeight="27.0" prefWidth="288.0" style="-fx-background-color: #F4F4F4;" stylesheets="@../css/textfield.css" />
+      <ChoiceBox fx:id="sintoma" layoutX="109.0" layoutY="582.0" prefHeight="27.0" prefWidth="288.0" style="-fx-background-color: #F4F4F4;" stylesheets="@../css/textfield.css" />
       <ImageView fitHeight="41.0" fitWidth="32.0" layoutX="63.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/icons/gender.png" />
@@ -91,7 +87,41 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button id="Button" layoutX="183.0" layoutY="625.0" mnemonicParsing="false" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE">
+      <Button id="Button" fx:id="guardarPaciente" layoutX="183.0" layoutY="625.0" mnemonicParsing="false" onAction="#guardarPaciente" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <TextField fx:id="nombreDoctor" layoutX="703.0" layoutY="394.0" prefHeight="27.0" prefWidth="287.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
+      <TextField fx:id="apellidoDoctor" layoutX="703.0" layoutY="442.0" prefHeight="27.0" prefWidth="287.0" promptText="Apellido" stylesheets="@../css/textfield.css" />
+      <TextField fx:id="especialidad" layoutX="703.0" layoutY="493.0" prefHeight="27.0" prefWidth="287.0" promptText="Especialidad" stylesheets="@../css/textfield.css" />
+      <Line endX="-642.0" endY="336.0" layoutX="666.0" layoutY="369.0" startX="418.0" startY="336.0" />
+      <Button id="Button" fx:id="guardarDoctor" layoutX="806.0" layoutY="625.0" mnemonicParsing="false" onAction="#guardarDoctor" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="242.0" layoutX="12.0" layoutY="722.0" stroke="#c9c9c9" strokeType="INSIDE" width="1074.0" />
+      <Line endX="-100.0" endY="207.0" layoutX="657.0" layoutY="739.0" startX="-100.0" />
+      <Text fill="#6f6c6c" layoutX="706.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Doctores" wrappingWidth="280.92578125">
+         <font>
+            <Font name="Sylfaen" size="30.0" />
+         </font>
+      </Text>
+      <Text fill="#6f6c6c" layoutX="159.0" layoutY="759.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Puesto" wrappingWidth="156.92578125">
+         <font>
+            <Font name="Sylfaen" size="28.0" />
+         </font>
+      </Text>
+      <Text fill="#6f6c6c" layoutX="769.0" layoutY="759.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar puesto" wrappingWidth="225.92578125">
+         <font>
+            <Font name="Sylfaen" size="28.0" />
+         </font>
+      </Text>
+      <TextField fx:id="numeroPuesto" layoutX="111.0" layoutY="787.0" prefHeight="27.0" prefWidth="287.0" promptText="Numero " stylesheets="@../css/textfield.css" />
+      <TextField fx:id="medicoPuesto" layoutX="111.0" layoutY="830.0" prefHeight="27.0" prefWidth="287.0" promptText="Medico responsable" stylesheets="@../css/textfield.css" />
+      <ComboBox fx:id="eliminarPuesto" layoutX="716.0" layoutY="775.0" prefHeight="25.0" prefWidth="281.0" promptText="Elegir puesto a eliminar" />
+      <Button id="Button" fx:id="guardarPuesto" layoutX="183.0" layoutY="875.0" mnemonicParsing="false" onAction="#guardarPuesto" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>

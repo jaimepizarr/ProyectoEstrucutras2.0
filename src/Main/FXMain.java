@@ -5,10 +5,13 @@
  */
 package Main;
 
+import java.io.File;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -22,20 +25,24 @@ import javafx.stage.Stage;
 public class FXMain extends Application {
     
     @Override
+    @SuppressWarnings("empty-statement")
     public void start(Stage primaryStage) {
         try{
-        AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("fm_Paciente.fxml"));
+            System.out.println("F el trabajo");
+      FXMLLoader loader = new FXMLLoader(new File("test.fxml").toURI().toURL());
+        Parent root = loader.load();
+ 
         Scene scene = new Scene (root);
         primaryStage.setScene(scene);
         primaryStage.show();
-        }catch(Exception e){
-        e.printStackTrace();;
+        }catch(IOException e){
+;
         
         
         }
     }
     public static void main(String[] args) {
-        launch(args);
+        Application.launch(args);
     }
     
 }

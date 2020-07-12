@@ -29,7 +29,7 @@
    <right>
       <Pane prefHeight="406.0" prefWidth="378.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tbTurnoPuesto" fixedCellSize="0.0" layoutX="47.0" layoutY="76.0" prefHeight="329.0" prefWidth="295.0" stylesheets="@../css/turnos.css">
+            <TableView fx:id="tbTurnoPuesto" fixedCellSize="0.0" layoutX="42.0" layoutY="77.0" prefHeight="329.0" prefWidth="295.0" stylesheets="@../css/turnos.css">
               <columns>
                 <TableColumn fx:id="colTurno" prefWidth="143.72955322265625" styleClass="css" text="TURNO" />
                 <TableColumn fx:id="colPuesto" prefWidth="150.27044677734375" text="PUESTO" />
