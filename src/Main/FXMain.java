@@ -5,7 +5,6 @@
  */
 package Main;
 
-import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -25,22 +24,14 @@ import javafx.stage.Stage;
 public class FXMain extends Application {
     
     @Override
-    @SuppressWarnings("empty-statement")
-    public void start(Stage primaryStage) {
-        try{
-            System.out.println("F el trabajo");
-      FXMLLoader loader = new FXMLLoader(new File("test.fxml").toURI().toURL());
-        Parent root = loader.load();
- 
+    public void start(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Main/Registros.fxml"));
         Scene scene = new Scene (root);
         primaryStage.setScene(scene);
         primaryStage.show();
-        }catch(IOException e){
-;
-        
-        
+
         }
-    }
+    
     public static void main(String[] args) {
         Application.launch(args);
     }

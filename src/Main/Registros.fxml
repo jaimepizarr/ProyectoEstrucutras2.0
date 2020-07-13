@@ -24,20 +24,17 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ce553d" height="190.0" layoutX="436.0" layoutY="118.0" stroke="WHITE" strokeType="INSIDE" width="378.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8a136" height="190.0" layoutX="846.0" layoutY="118.0" strokeType="INSIDE" width="244.0">
          <stroke>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="#2c2929" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </RadialGradient>
+
+               
+
          </stroke>
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#387183" height="188.0" layoutX="12.0" layoutY="120.0" stroke="#58aad6" strokeType="INSIDE" width="54.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ba4d37" height="188.0" layoutX="435.0" layoutY="119.0" stroke="#ba4d37" strokeType="INSIDE" width="54.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#60b9d3" height="54.0" layoutX="20.0" layoutY="24.0" stroke="#60b9d3" strokeType="INSIDE" width="1066.0" />
-      <Text fill="WHITE" layoutX="374.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistemas turnos" wrappingWidth="423.3641357421875">
+      <Text fill="WHITE" layoutX="500.0" layoutY="60.0" scaleX="3.0" scaleY="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistemas turnos" wrappingWidth="423.3641357421875">
          <font>
-            <Font size="48.0" />
+
          </font>
       </Text>
       <ImageView fitHeight="105.0" fitWidth="105.0" layoutX="285.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
@@ -59,7 +56,7 @@
       <Line endX="-100.0" endY="299.0" layoutX="656.0" layoutY="359.0" startX="-100.0" />
       <Text fill="#6f6c6c" layoutX="114.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Pacientes" wrappingWidth="280.92578125" AnchorPane.bottomAnchor="628.5625" AnchorPane.leftAnchor="114.0" AnchorPane.topAnchor="349.880859375">
          <font>
-            <Font name="Sylfaen" size="30.0" />
+
          </font>
       </Text>
       <TextField fx:id="nombrePaciente" layoutX="107.0" layoutY="394.0" prefHeight="27.0" prefWidth="287.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
@@ -79,17 +76,17 @@
       </ImageView>
       <Text fill="WHITE" layoutX="103.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doctores Registrados">
          <font>
-            <Font size="24.0" />
+
          </font>
       </Text>
       <Text fill="WHITE" layoutX="523.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacientes Atendidos">
          <font>
-            <Font size="24.0" />
+
          </font>
       </Text>
       <Button id="Button" fx:id="guardarPaciente" layoutX="183.0" layoutY="625.0" mnemonicParsing="false" onAction="#guardarPaciente" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE">
          <font>
-            <Font size="36.0" />
+
          </font>
       </Button>
       <TextField fx:id="nombreDoctor" layoutX="703.0" layoutY="394.0" prefHeight="27.0" prefWidth="287.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
@@ -98,24 +95,24 @@
       <Line endX="-642.0" endY="336.0" layoutX="666.0" layoutY="369.0" startX="418.0" startY="336.0" />
       <Button id="Button" fx:id="guardarDoctor" layoutX="806.0" layoutY="625.0" mnemonicParsing="false" onAction="#guardarDoctor" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE">
          <font>
-            <Font size="36.0" />
+
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="242.0" layoutX="12.0" layoutY="722.0" stroke="#c9c9c9" strokeType="INSIDE" width="1074.0" />
       <Line endX="-100.0" endY="207.0" layoutX="657.0" layoutY="739.0" startX="-100.0" />
       <Text fill="#6f6c6c" layoutX="706.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Doctores" wrappingWidth="280.92578125">
          <font>
-            <Font name="Sylfaen" size="30.0" />
+
          </font>
       </Text>
       <Text fill="#6f6c6c" layoutX="159.0" layoutY="759.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Puesto" wrappingWidth="156.92578125">
          <font>
-            <Font name="Sylfaen" size="28.0" />
+     
          </font>
       </Text>
       <Text fill="#6f6c6c" layoutX="769.0" layoutY="759.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar puesto" wrappingWidth="225.92578125">
          <font>
-            <Font name="Sylfaen" size="28.0" />
+    
          </font>
       </Text>
       <TextField fx:id="numeroPuesto" layoutX="111.0" layoutY="787.0" prefHeight="27.0" prefWidth="287.0" promptText="Numero " stylesheets="@../css/textfield.css" />
@@ -123,7 +120,7 @@
       <ComboBox fx:id="eliminarPuesto" layoutX="716.0" layoutY="775.0" prefHeight="25.0" prefWidth="281.0" promptText="Elegir puesto a eliminar" />
       <Button id="Button" fx:id="guardarPuesto" layoutX="183.0" layoutY="875.0" mnemonicParsing="false" onAction="#guardarPuesto" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE">
          <font>
-            <Font size="36.0" />
+     
          </font>
       </Button>
    </children>
