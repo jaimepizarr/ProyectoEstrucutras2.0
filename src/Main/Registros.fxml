@@ -21,7 +21,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8a136" height="190.0" layoutX="846.0" layoutY="118.0" strokeType="INSIDE" width="244.0">
          <stroke>
 
-               
+
 
          </stroke>
       </Rectangle>
@@ -30,7 +30,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#60b9d3" height="54.0" layoutX="20.0" layoutY="24.0" stroke="#60b9d3" strokeType="INSIDE" width="1066.0" />
 
       <Text fill="WHITE" layoutX="624.0" layoutY="56.0" scaleX="3.0" scaleY="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistemas turnos" wrappingWidth="232.4252166748047">
-        
+
 
 
       </Text>
@@ -53,7 +53,7 @@
       <Text fill="WHITE" layoutX="87.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doctores Registrados">
          </Text>
       <Text fill="WHITE" layoutX="503.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacientes Atendidos">
-         
+
          </Text>
       <Line endX="-642.0" endY="336.0" layoutX="666.0" layoutY="369.0" startX="418.0" startY="336.0" />
       <AnchorPane id="hEliminarPuesto" fx:id="hEliminarPuesto" layoutX="571.0" layoutY="327.0" prefHeight="360.0" prefWidth="517.0" visible="false">
@@ -86,8 +86,8 @@
             <Button id="Button" layoutX="196.0" layoutY="296.0" mnemonicParsing="false" stylesheets="@../css/button.css" text="Guardar" />
          </children>
       </AnchorPane>
-      <Button id="ButtonRegistroPaciente" fx:id="btnRegistroPaciente" layoutX="125.0" layoutY="371.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" onMouseClicked="#handleButtonAction" prefHeight="35.0" prefWidth="245.0" stylesheets="@../css/button.css" text="Registro de Pacientes" textFill="WHITE" />
-      <Button id="ButtonRegistroDoctor" fx:id="btnRegistroDoctor" layoutX="124.0" layoutY="437.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" onMouseClicked="#handleButtonAction" prefHeight="35.0" prefWidth="248.0" stylesheets="@../css/button.css" text="Registro de Doctores" textFill="WHITE" />
+      <Button id="ButtonRegistroPaciente" fx:id="btnRegistroPaciente" layoutX="125.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="35.0" prefWidth="245.0" stylesheets="@../css/button.css" text="Registro de Pacientes" textFill="WHITE" />
+      <Button id="ButtonRegistroDoctor" fx:id="btnRegistroDoctor" layoutX="124.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="35.0" prefWidth="248.0" stylesheets="@../css/button.css" text="Registro de Doctores" textFill="WHITE" />
       <Button id="ButtonCrearPuesto" fx:id="btnCrearPuesto" layoutX="120.0" layoutY="499.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="32.0" prefWidth="257.0" stylesheets="@../css/button.css" text="Crear Puesto" textFill="WHITE" />
       <Button id="ButtonEliminarPuesto" fx:id="btnEliminarPuesto" layoutX="122.0" layoutY="558.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="31.0" prefWidth="257.0" stylesheets="@../css/button.css" text="Eliminar Puesto" textFill="WHITE" />
 
