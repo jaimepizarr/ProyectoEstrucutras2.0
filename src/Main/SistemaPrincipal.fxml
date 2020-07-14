@@ -19,9 +19,7 @@
       <AnchorPane prefHeight="49.0" prefWidth="894.0" style="-fx-background-color: #63CBEC#63CBEC;" BorderPane.alignment="CENTER">
          <children>
             <Text fill="WHITE" layoutX="54.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Horario de atención de Lunes a Viernes 10 a 18hs /Sabados">
-               <font>
-                  <Font name="Eras Demi ITC" size="28.0" />
-               </font>
+              
             </Text>
          </children>
       </AnchorPane>
