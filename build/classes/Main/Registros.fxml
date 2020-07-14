@@ -52,26 +52,23 @@
       </ImageView>
       <Line endX="-100.0" endY="299.0" layoutX="656.0" layoutY="359.0" startX="-100.0" />
       <Text fill="WHITE" layoutX="87.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doctores Registrados">
-         <font>
-            <Font size="30.0" />
-         </font></Text>
+         </Text>
       <Text fill="WHITE" layoutX="503.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pacientes Atendidos">
-         <font>
-            <Font size="30.0" />
-         </font></Text>
+         
+         </Text>
       <Line endX="-642.0" endY="336.0" layoutX="666.0" layoutY="369.0" startX="418.0" startY="336.0" />
-      <AnchorPane layoutX="571.0" layoutY="327.0" prefHeight="360.0" prefWidth="517.0" visible="false">
+      <AnchorPane id="hEliminarPuesto" fx:id="hRegistroPaciente" layoutX="571.0" layoutY="327.0" prefHeight="360.0" prefWidth="517.0" visible="false">
          <children>
             <ComboBox editable="true" layoutX="80.0" layoutY="98.0" prefHeight="27.0" prefWidth="358.0" promptText="Elegir puesto a eliminar" />
             <Text layoutX="218.0" layoutY="41.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar Puesto" />
          </children></AnchorPane>
-      <AnchorPane layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
+      <AnchorPane id="hCrearPuesto" fx:id="hR" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0">
          <children>
             <Text layoutX="216.0" layoutY="37.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Puesto" />
             <TextField layoutX="76.0" layoutY="81.0" prefHeight="27.0" prefWidth="358.0" promptText="Numero" />
             <ComboBox editable="true" layoutX="73.0" layoutY="135.0" prefHeight="27.0" prefWidth="361.0" promptText="Medico responsabilidad" />
          </children></AnchorPane>
-      <AnchorPane layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
+      <AnchorPane id="hRegistroDoctores" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
          <children>
             <Text layoutX="207.0" layoutY="32.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de doctores" />
             <TextField layoutX="109.0" layoutY="69.0" prefHeight="27.0" prefWidth="324.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
@@ -79,7 +76,7 @@
             <ComboBox editable="true" layoutX="110.0" layoutY="177.0" prefHeight="27.0" prefWidth="323.0" promptText="Especialidad" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0">
+      <AnchorPane id="hRegistroPaciente" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
          <children>
             <Text layoutX="199.0" layoutY="35.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Paciente" wrappingWidth="114.90386429949649" />
             <TextField layoutX="101.0" layoutY="61.0" prefHeight="27.0" prefWidth="316.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
