@@ -29,8 +29,11 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#387183" height="188.0" layoutX="12.0" layoutY="120.0" stroke="#58aad6" strokeType="INSIDE" width="54.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ba4d37" height="188.0" layoutX="435.0" layoutY="119.0" stroke="#ba4d37" strokeType="INSIDE" width="54.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#60b9d3" height="54.0" layoutX="20.0" layoutY="24.0" stroke="#60b9d3" strokeType="INSIDE" width="1066.0" />
+
       <Text fill="WHITE" layoutX="624.0" layoutY="56.0" scaleX="3.0" scaleY="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistemas turnos" wrappingWidth="232.4252166748047">
         
+
+
       </Text>
       <ImageView fitHeight="105.0" fitWidth="105.0" layoutX="285.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -91,5 +94,6 @@
       <Button id="Button" layoutX="124.0" layoutY="437.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="248.0" stylesheets="@../css/button.css" text="Registro de Doctores" textFill="WHITE" />
       <Button id="Button" layoutX="120.0" layoutY="499.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="257.0" stylesheets="@../css/button.css" text="Crear Puesto" textFill="WHITE" />
       <Button id="Button" layoutX="122.0" layoutY="558.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="257.0" stylesheets="@../css/button.css" text="Eliminar Puesto" textFill="WHITE" />
+
    </children>
 </AnchorPane>

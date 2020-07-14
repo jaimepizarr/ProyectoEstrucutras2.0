@@ -36,18 +36,12 @@ public class Puesto {
         this.medico = medico;
     }
 
-   
-
-   
     
-    
-    
-    
-   public void almacenarDatos(){}
+    public void almacenarDatos(){}
 
     @Override
     public String toString() {
-        return "Puesto{" + "numero=" + numero + ", medico=" + medico + '}';
+        return numero;
     }
       
     

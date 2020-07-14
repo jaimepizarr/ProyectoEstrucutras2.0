@@ -20,10 +20,11 @@ public class Turno {
 
   
     
-    public String generarTurno(){
-        return null;
-    
 
+
+    @Override
+    public String toString() {
+        return turno;
     }
     
          
