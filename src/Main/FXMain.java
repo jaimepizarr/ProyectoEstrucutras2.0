@@ -27,9 +27,11 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Main/Registros.fxml"));
         Scene scene = new Scene (root);
+        
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
-
+        
         }
     
     public static void main(String[] args) {

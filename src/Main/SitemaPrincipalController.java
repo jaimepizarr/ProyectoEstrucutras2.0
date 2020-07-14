@@ -6,6 +6,7 @@ import ComponentesSistema.TurnoPuesto;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -24,28 +25,35 @@ public class SitemaPrincipalController {
     @FXML
     private TableView<TurnoPuesto> tbTurnoPuesto;
     @FXML
-    private TableColumn<String,TurnoPuesto> colTurno;
+    private TableColumn<String, TurnoPuesto> colTurno;
     @FXML
-    private TableColumn<Integer,TurnoPuesto> colPuesto;
-    
+    private TableColumn<Integer, TurnoPuesto> colPuesto;
+
     private LinkedList<TurnoPuesto> tableList;
-    private LinkedList<Puesto> puestosLibres;
+    private Queue<Puesto> puestosLibres;
     private PriorityQueue<Turno> turnos;
-    
-    
-    
+
+    public SitemaPrincipalController() {
+        tableList = new LinkedList<>();
+        puestosLibres = new LinkedList<>();
+        turnos = new PriorityQueue<>();
+    }
+
     @FXML
     void initialize() {
         assert mediaView != null : "fx:id=\"mediaView\" was not injected: check your FXML file 'FXML.fxml'.";
         colTurno.setCellValueFactory(new PropertyValueFactory("turno"));
         colPuesto.setCellValueFactory(new PropertyValueFactory("puesto"));
-    }}
-    
-   /* private void asignarPuestoATurno(){
-        while(tableList.size()!=puestos.size()){
+    }
+
+    private void asignarPuestoATurno() {
+        if (puestosLibres.size() > 0) {
             Turno t = turnos.poll();
-            
+            Puesto p = puestosLibres.poll();
+            TurnoPuesto tp = new TurnoPuesto(t,p);
+            tableList.addFirst(tp);
+            tbTurnoPuesto.refresh();
         }
     }
+    
 }
-*/

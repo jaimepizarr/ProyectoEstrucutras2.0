@@ -10,27 +10,27 @@ package ComponentesSistema;
  * @author PC
  */
 public class TurnoPuesto {
-    private String turno;
-    private int puesto;
+    private Turno turno;
+    private Puesto puesto;
 
-    public TurnoPuesto(String turno, int puesto) {
+    public TurnoPuesto(Turno turno, Puesto puesto) {
         this.turno = turno;
         this.puesto = puesto;
     }
 
-    public String getTurno() {
+    public Turno getTurno() {
         return turno;
     }
 
-    public void setTurno(String turno) {
+    public void setTurno(Turno turno) {
         this.turno = turno;
     }
 
-    public int getPuesto() {
+    public Puesto getPuesto() {
         return puesto;
     }
 
-    public void setPuesto(int puesto) {
+    public void setPuesto(Puesto puesto) {
         this.puesto = puesto;
     }
 
