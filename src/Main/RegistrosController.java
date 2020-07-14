@@ -5,6 +5,7 @@
  */
 package Main;
 
+import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -83,6 +84,16 @@ public class RegistrosController implements Initializable {
     void guardarPuesto(ActionEvent event) {
 
     }
+   
+    
+    @FXML
+    private Button btnRegistroPaciente,btnRegistroDoctor,btnCrearPuesto,btnEliminarPuesto;
+    
+ 
+ 
+    
+        
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
