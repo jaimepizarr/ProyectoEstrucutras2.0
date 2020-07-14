@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="719.0" prefWidth="1109.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.RegistrosController">
@@ -57,18 +56,18 @@
          
          </Text>
       <Line endX="-642.0" endY="336.0" layoutX="666.0" layoutY="369.0" startX="418.0" startY="336.0" />
-      <AnchorPane id="hEliminarPuesto" fx:id="hRegistroPaciente" layoutX="571.0" layoutY="327.0" prefHeight="360.0" prefWidth="517.0" visible="false">
+      <AnchorPane id="hEliminarPuesto" fx:id="hEliminarPuesto" layoutX="571.0" layoutY="327.0" prefHeight="360.0" prefWidth="517.0" visible="false">
          <children>
             <ComboBox editable="true" layoutX="80.0" layoutY="98.0" prefHeight="27.0" prefWidth="358.0" promptText="Elegir puesto a eliminar" />
             <Text layoutX="218.0" layoutY="41.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar Puesto" />
          </children></AnchorPane>
-      <AnchorPane id="hCrearPuesto" fx:id="hR" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0">
+      <AnchorPane id="hCrearPuesto" fx:id="hCrearPuesto" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0">
          <children>
             <Text layoutX="216.0" layoutY="37.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Puesto" />
             <TextField layoutX="76.0" layoutY="81.0" prefHeight="27.0" prefWidth="358.0" promptText="Numero" />
             <ComboBox editable="true" layoutX="73.0" layoutY="135.0" prefHeight="27.0" prefWidth="361.0" promptText="Medico responsabilidad" />
          </children></AnchorPane>
-      <AnchorPane id="hRegistroDoctores" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
+      <AnchorPane id="hRegistroDoctores" fx:id="hRegistroDoctores" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
          <children>
             <Text layoutX="207.0" layoutY="32.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de doctores" />
             <TextField layoutX="109.0" layoutY="69.0" prefHeight="27.0" prefWidth="324.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
@@ -76,7 +75,7 @@
             <ComboBox editable="true" layoutX="110.0" layoutY="177.0" prefHeight="27.0" prefWidth="323.0" promptText="Especialidad" />
          </children>
       </AnchorPane>
-      <AnchorPane id="hRegistroPaciente" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
+      <AnchorPane id="hRegistroPaciente" fx:id="hRegistroPaciente" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
          <children>
             <Text layoutX="199.0" layoutY="35.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Paciente" wrappingWidth="114.90386429949649" />
             <TextField layoutX="101.0" layoutY="61.0" prefHeight="27.0" prefWidth="316.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
@@ -87,10 +86,10 @@
             <Button id="Button" layoutX="196.0" layoutY="296.0" mnemonicParsing="false" stylesheets="@../css/button.css" text="Guardar" />
          </children>
       </AnchorPane>
-      <Button id="ButtonRegistroPaciente" fx:id="btnRegistroPaciente" layoutX="125.0" layoutY="371.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" prefHeight="35.0" prefWidth="245.0" stylesheets="@../css/button.css" text="Registro de Pacientes" textFill="WHITE" />
-      <Button id="ButtonRegistroDoctor" fx:id="btnRegistroDoctor" layoutX="124.0" layoutY="437.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" prefHeight="35.0" prefWidth="248.0" stylesheets="@../css/button.css" text="Registro de Doctores" textFill="WHITE" />
-      <Button id="ButtonCrearPuesto" fx:id="btnCrearPuesto" layoutX="120.0" layoutY="499.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" prefHeight="32.0" prefWidth="257.0" stylesheets="@../css/button.css" text="Crear Puesto" textFill="WHITE" />
-      <Button id="ButtonEliminarPuesto" fx:id="btnEliminarPuesto" layoutX="122.0" layoutY="558.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" prefHeight="31.0" prefWidth="257.0" stylesheets="@../css/button.css" text="Eliminar Puesto" textFill="WHITE" />
+      <Button id="ButtonRegistroPaciente" fx:id="btnRegistroPaciente" layoutX="125.0" layoutY="371.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" onMouseClicked="#handleButtonAction" prefHeight="35.0" prefWidth="245.0" stylesheets="@../css/button.css" text="Registro de Pacientes" textFill="WHITE" />
+      <Button id="ButtonRegistroDoctor" fx:id="btnRegistroDoctor" layoutX="124.0" layoutY="437.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" onMouseClicked="#handleButtonAction" prefHeight="35.0" prefWidth="248.0" stylesheets="@../css/button.css" text="Registro de Doctores" textFill="WHITE" />
+      <Button id="ButtonCrearPuesto" fx:id="btnCrearPuesto" layoutX="120.0" layoutY="499.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="32.0" prefWidth="257.0" stylesheets="@../css/button.css" text="Crear Puesto" textFill="WHITE" />
+      <Button id="ButtonEliminarPuesto" fx:id="btnEliminarPuesto" layoutX="122.0" layoutY="558.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="31.0" prefWidth="257.0" stylesheets="@../css/button.css" text="Eliminar Puesto" textFill="WHITE" />
 
    </children>
 </AnchorPane>

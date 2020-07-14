@@ -91,27 +91,27 @@ public class RegistrosController implements Initializable {
     @FXML
     private Button btnRegistroPaciente,btnRegistroDoctor,btnCrearPuesto,btnEliminarPuesto;
     @FXML
-    private AnchorPane hRegistrPaciente,hEliminarPuesto,hCrearPuesto,hRegistroDoctores;
+    private AnchorPane hRegistroPaciente,hEliminarPuesto,hCrearPuesto,hRegistroDoctores;
     @FXML
     private void handleButtonAction(Event event){
         
         if(event.getTarget()==btnRegistroPaciente){
-            hRegistrPaciente.setVisible(true); hRegistroDoctores.setVisible(false);
+            hRegistroPaciente.setVisible(true); hRegistroDoctores.setVisible(false);
             hCrearPuesto.setVisible(false);hEliminarPuesto.setVisible(false);
      
         }
          if(event.getTarget()==btnRegistroDoctor){
-            hRegistrPaciente.setVisible(false); hRegistroDoctores.setVisible(true);
+            hRegistroPaciente.setVisible(false); hRegistroDoctores.setVisible(true);
             hCrearPuesto.setVisible(false);hEliminarPuesto.setVisible(false);
      
         }
           if(event.getTarget()==btnCrearPuesto){
-            hRegistrPaciente.setVisible(false); hRegistroDoctores.setVisible(false);
+            hRegistroPaciente.setVisible(false); hRegistroDoctores.setVisible(false);
             hCrearPuesto.setVisible(true);hEliminarPuesto.setVisible(false);
      
         }
            if(event.getTarget()==btnEliminarPuesto){
-            hRegistrPaciente.setVisible(false); hRegistroDoctores.setVisible(false);
+            hRegistroPaciente.setVisible(false); hRegistroDoctores.setVisible(false);
             hCrearPuesto.setVisible(false);hEliminarPuesto.setVisible(true);
      
         }
