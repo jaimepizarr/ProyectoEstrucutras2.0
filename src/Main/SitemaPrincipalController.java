@@ -14,6 +14,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.media.MediaView;
 
+/**
+ *
+ * @author PC
+ */
 public class SitemaPrincipalController {
 
     @FXML
@@ -32,11 +36,28 @@ public class SitemaPrincipalController {
     private LinkedList<TurnoPuesto> tableList;
     private Queue<Puesto> puestosLibres;
     private PriorityQueue<Turno> turnos;
-
+    
+    private static SitemaPrincipalController singleInstance;
+    
+    /**
+     *Constructor: Initializes the lists
+     */
     public SitemaPrincipalController() {
         tableList = new LinkedList<>();
         puestosLibres = new LinkedList<>();
-        turnos = new PriorityQueue<>();
+        turnos = new PriorityQueue<>((Turno t1,Turno t2)-> 
+                t1.getPaciente().getSintoma().getPrioridad()-t2.getPaciente().getSintoma().getPrioridad());
+    }
+    
+    /**
+     * Method for Singleton Design Pattern.
+     * @return Single Instance of the class
+     */
+    public static SitemaPrincipalController getInstance(){
+        if(singleInstance == null){
+            singleInstance = new SitemaPrincipalController();
+        }
+        return singleInstance;
     }
 
     @FXML
@@ -46,6 +67,9 @@ public class SitemaPrincipalController {
         colPuesto.setCellValueFactory(new PropertyValueFactory("puesto"));
     }
 
+    /**
+     *Method for assigning places to a turn.
+     */
     private void asignarPuestoATurno() {
         if (puestosLibres.size() > 0) {
             Turno t = turnos.poll();
@@ -55,5 +79,31 @@ public class SitemaPrincipalController {
             tbTurnoPuesto.refresh();
         }
     }
+
+    public LinkedList<TurnoPuesto> getTableList() {
+        return tableList;
+    }
+
+    public void setTableList(LinkedList<TurnoPuesto> tableList) {
+        this.tableList = tableList;
+    }
+
+    public Queue<Puesto> getPuestosLibres() {
+        return puestosLibres;
+    }
+
+    public void setPuestosLibres(Queue<Puesto> puestosLibres) {
+        this.puestosLibres = puestosLibres;
+    }
+
+    public PriorityQueue<Turno> getTurnos() {
+        return turnos;
+    }
+
+    public void setTurnos(PriorityQueue<Turno> turnos) {
+        this.turnos = turnos;
+    }
+    
+    
     
 }

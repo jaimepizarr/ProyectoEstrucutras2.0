@@ -23,6 +23,11 @@ import javafx.stage.Stage;
  */
 public class FXMain extends Application {
     
+    /**
+     *
+     * @param primaryStage
+     * @throws IOException
+     */
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Main/Registros.fxml"));
@@ -33,6 +38,10 @@ public class FXMain extends Application {
         
         }
     
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Application.launch(args);
     }

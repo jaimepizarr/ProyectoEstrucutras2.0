@@ -74,12 +74,14 @@ public class RegistrosController implements Initializable {
 
     @FXML
     void guardarDoctor(ActionEvent event) {
-
+        
     }
 
     @FXML
     void guardarPaciente(ActionEvent event) {
-
+        //Codigo para guardar paciente
+        SitemaPrincipalController principal = SitemaPrincipalController.getInstance();
+        
     }
 
     @FXML
@@ -115,18 +117,13 @@ public class RegistrosController implements Initializable {
             hCrearPuesto.setVisible(false);hEliminarPuesto.setVisible(true);
      
         }
-        
-            
-            
-            
-     
-    
     }
  
- 
-    
-        
-    
+    /**
+     *
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
