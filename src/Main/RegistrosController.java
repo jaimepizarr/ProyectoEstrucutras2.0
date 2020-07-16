@@ -8,6 +8,8 @@ package Main;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -24,7 +26,8 @@ import javafx.scene.layout.AnchorPane;
  * @author USUARIO
  */
 public class RegistrosController implements Initializable {
-   @FXML
+
+    @FXML
     private ResourceBundle resources;
 
     @FXML
@@ -38,9 +41,6 @@ public class RegistrosController implements Initializable {
 
     @FXML
     private TextField edadPaciente;
-
-    @FXML
-    private ChoiceBox<?> genero;
 
     @FXML
     private ChoiceBox<?> sintoma;
@@ -72,61 +72,92 @@ public class RegistrosController implements Initializable {
     @FXML
     private Button guardarPuesto;
 
+    //funcionalidad BOX GENERO
+    ObservableList Lgenero = FXCollections.observableArrayList();
+    @FXML
+    private ChoiceBox<String> genero;
+
+    private void loadData() {
+        Lgenero.removeAll(Lgenero);
+        String e1 = "Mujer";
+        String e2 = "Hombre";
+        Lgenero.addAll(e1, e2);
+        genero.setItems(Lgenero);
+    }
+
+    @FXML
+    void cbGenero(ActionEvent event) {
+
+    }
+
     @FXML
     void guardarDoctor(ActionEvent event) {
-        
+
     }
 
     @FXML
     void guardarPaciente(ActionEvent event) {
         //Codigo para guardar paciente
         SitemaPrincipalController principal = SitemaPrincipalController.getInstance();
-        
+
     }
 
     @FXML
     void guardarPuesto(ActionEvent event) {
 
     }
-   
-    
+
     @FXML
-    private Button btnRegistroPaciente,btnRegistroDoctor,btnCrearPuesto,btnEliminarPuesto;
+    private Button btnRegistroPaciente, btnRegistroDoctor, btnCrearPuesto, btnEliminarPuesto;
     @FXML
-    private AnchorPane hRegistroPaciente,hEliminarPuesto,hCrearPuesto,hRegistroDoctores;
+    private AnchorPane hRegistroPaciente, hEliminarPuesto, hCrearPuesto, hRegistroDoctores;
+
     @FXML
-    private void handleButtonAction(Event event){
-        
-        if(event.getTarget()==btnRegistroPaciente){
-            hRegistroPaciente.setVisible(true); hRegistroDoctores.setVisible(false);
-            hCrearPuesto.setVisible(false);hEliminarPuesto.setVisible(false);
-     
+    private void handleButtonAction(Event event) {
+
+        if (event.getTarget() == btnRegistroPaciente) {
+            hRegistroPaciente.setVisible(true);
+            hRegistroDoctores.setVisible(false);
+            hCrearPuesto.setVisible(false);
+            hEliminarPuesto.setVisible(false);
+
         }
-         if(event.getTarget()==btnRegistroDoctor){
-            hRegistroPaciente.setVisible(false); hRegistroDoctores.setVisible(true);
-            hCrearPuesto.setVisible(false);hEliminarPuesto.setVisible(false);
-     
+        if (event.getTarget() == btnRegistroDoctor) {
+            hRegistroPaciente.setVisible(false);
+            hRegistroDoctores.setVisible(true);
+            hCrearPuesto.setVisible(false);
+            hEliminarPuesto.setVisible(false);
+
         }
-          if(event.getTarget()==btnCrearPuesto){
-            hRegistroPaciente.setVisible(false); hRegistroDoctores.setVisible(false);
-            hCrearPuesto.setVisible(true);hEliminarPuesto.setVisible(false);
-     
+        if (event.getTarget() == btnCrearPuesto) {
+            hRegistroPaciente.setVisible(false);
+            hRegistroDoctores.setVisible(false);
+            hCrearPuesto.setVisible(true);
+            hEliminarPuesto.setVisible(false);
+
         }
-           if(event.getTarget()==btnEliminarPuesto){
-            hRegistroPaciente.setVisible(false); hRegistroDoctores.setVisible(false);
-            hCrearPuesto.setVisible(false);hEliminarPuesto.setVisible(true);
-     
+        if (event.getTarget() == btnEliminarPuesto) {
+            hRegistroPaciente.setVisible(false);
+            hRegistroDoctores.setVisible(false);
+            hCrearPuesto.setVisible(false);
+            hEliminarPuesto.setVisible(true);
+
         }
     }
- 
+
     /**
      *
      * @param url
      * @param rb
      */
     @Override
+
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        try {
+            loadData();
+        } catch (Exception e) {
+            System.out.println("error");
+        }
+    }
+
 }
