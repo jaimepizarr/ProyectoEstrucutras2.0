@@ -27,62 +27,24 @@ import javafx.scene.layout.AnchorPane;
  */
 public class RegistrosController implements Initializable {
 
-    @FXML
-    private ResourceBundle resources;
 
     @FXML
-    private URL location;
+    private ComboBox<String> cmbPuesto;
 
     @FXML
-    private TextField nombrePaciente;
-
-    @FXML
-    private TextField apellidoPaciente;
-
-    @FXML
-    private TextField edadPaciente;
-
-    @FXML
-    private ChoiceBox<?> sintoma;
-
-    @FXML
-    private Button guardarPaciente;
-
-    @FXML
-    private TextField nombreDoctor;
-
-    @FXML
-    private TextField apellidoDoctor;
-
-    @FXML
-    private TextField especialidad;
-
-    @FXML
-    private Button guardarDoctor;
-
-    @FXML
-    private TextField numeroPuesto;
-
-    @FXML
-    private TextField medicoPuesto;
-
-    @FXML
-    private ComboBox<?> eliminarPuesto;
-
-    @FXML
-    private Button guardarPuesto;
+    private Button btnGuardarPuesto;
 
     //funcionalidad BOX GENERO
-    ObservableList Lgenero = FXCollections.observableArrayList();
+    ObservableList<String> Lgenero;
     @FXML
-    private ChoiceBox<String> genero;
+    private ComboBox<String> cmbGenero;
+    @FXML
+    private Button btnGuardarDoctor;
+    @FXML
+    private Button btnGuardarPaciente;
 
     private void loadData() {
-        Lgenero.removeAll(Lgenero);
-        String e1 = "Mujer";
-        String e2 = "Hombre";
-        Lgenero.addAll(e1, e2);
-        genero.setItems(Lgenero);
+        cmbGenero.getItems().setAll(new String[]{"MASCULINO", "FEMENINO"});
     }
 
     @FXML
@@ -101,7 +63,7 @@ public class RegistrosController implements Initializable {
         SitemaPrincipalController principal = SitemaPrincipalController.getInstance();
 
     }
-
+    
     @FXML
     void guardarPuesto(ActionEvent event) {
 
@@ -153,11 +115,7 @@ public class RegistrosController implements Initializable {
     @Override
 
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            loadData();
-        } catch (Exception e) {
-            System.out.println("error");
-        }
+        loadData();
     }
 
 }
