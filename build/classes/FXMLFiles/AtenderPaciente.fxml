@@ -51,7 +51,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <ComboBox prefHeight="29.0" prefWidth="246.0" />
+                  <ComboBox id="cmbPuesto" fx:id="cmbPuesto" prefHeight="29.0" prefWidth="246.0" promptText="Seleccionar Puesto" />
                </children>
                <padding>
                   <Insets top="15.0" />
@@ -70,7 +70,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <TextField disable="true" prefHeight="30.0" prefWidth="250.0">
+                  <TextField id="txtNombrePaciente" fx:id="txtNombrePaciente" disable="true" prefHeight="30.0" prefWidth="250.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -90,7 +90,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <TextField disable="true" prefWidth="250.0">
+                  <TextField id="txtSintoma" fx:id="txtSintoma" disable="true" prefWidth="250.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -110,7 +110,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <TextField disable="true" prefWidth="250.0">
+                  <TextField id="txtEdad" fx:id="txtEdad" disable="true" prefWidth="250.0">
                      <font>
                         <Font size="14.0" />
                      </font>

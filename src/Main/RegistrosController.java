@@ -27,53 +27,91 @@ import javafx.scene.layout.AnchorPane;
  */
 public class RegistrosController implements Initializable {
 
+    //FUNCIONALIDAD COMBOBOX
+    ObservableList<String> Lgenero;
+    @FXML
+    private ComboBox<String> cmbGenero;
 
+    /**
+     * Method for set Itemns to cmbGenero.
+     */
+    private void loadData() {
+        cmbGenero.getItems().setAll(new String[]{"MASCULINO", "FEMENINO"});
+    }
     @FXML
     private ComboBox<String> cmbPuesto;
 
     @FXML
-    private Button btnGuardarPuesto;
-
-    //funcionalidad BOX GENERO
-    ObservableList<String> Lgenero;
+    private ComboBox<String> cmbSintomas;
     @FXML
-    private ComboBox<String> cmbGenero;
+    private ComboBox<String> cmbMedicoresponsable;
+    @FXML
+    private ComboBox<String> cmbEspecialidad;
+
+    
+    
+    //TEXT FIELDS
+    @FXML
+    private TextField txtNumeroPuesto;
+    @FXML
+    private TextField txtNombreDoctor;
+
+    @FXML
+    private TextField txtApellidoDoctor;
+    @FXML
+    private TextField txtNombrePaciente;
+
+    @FXML
+    private TextField txtApellidoPaciente;
+
+    @FXML
+    private TextField txtEdad;
+
+    // GUARDAR INFORMACION
     @FXML
     private Button btnGuardarDoctor;
     @FXML
     private Button btnGuardarPaciente;
-
-    private void loadData() {
-        cmbGenero.getItems().setAll(new String[]{"MASCULINO", "FEMENINO"});
-    }
-
     @FXML
-    void cbGenero(ActionEvent event) {
+    private Button btnGuardarPuesto;
 
-    }
-
+    /**
+     * Method for save Doctor data.
+     */
     @FXML
     void guardarDoctor(ActionEvent event) {
 
     }
 
+    /**
+     * Method for save Paciente data.
+     */
     @FXML
     void guardarPaciente(ActionEvent event) {
         //Codigo para guardar paciente
         SitemaPrincipalController principal = SitemaPrincipalController.getInstance();
 
     }
-    
+
+    /**
+     * Method for save Puesto data.
+     */
     @FXML
     void guardarPuesto(ActionEvent event) {
 
     }
+    
+    
 
+    //FUNCIONALIDAD MENU REGISTROS.
     @FXML
     private Button btnRegistroPaciente, btnRegistroDoctor, btnCrearPuesto, btnEliminarPuesto;
     @FXML
     private AnchorPane hRegistroPaciente, hEliminarPuesto, hCrearPuesto, hRegistroDoctores;
 
+    /**
+     * Method for set visibility to AnchorPane.
+     */
     @FXML
     private void handleButtonAction(Event event) {
 

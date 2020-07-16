@@ -51,7 +51,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <ComboBox prefHeight="29.0" prefWidth="246.0" />
+                  <ComboBox id="cmbPuesto" fx:id="cmbPuesto" prefHeight="29.0" prefWidth="246.0" promptText="Seleccionar Puesto" />
                </children>
                <padding>
                   <Insets top="15.0" />
@@ -70,7 +70,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <TextField disable="true" prefHeight="30.0" prefWidth="250.0">
+                  <TextField id="txtNombrePaciente" fx:id="txtNombrePaciente" disable="true" prefHeight="30.0" prefWidth="250.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -90,7 +90,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <TextField disable="true" prefWidth="250.0">
+                  <TextField id="txtSintoma" fx:id="txtSintoma" disable="true" prefWidth="250.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -110,7 +110,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <TextField disable="true" prefWidth="250.0">
+                  <TextField id="txtEdad" fx:id="txtEdad" disable="true" prefWidth="250.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -120,27 +120,7 @@
                   <Insets top="15.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="55.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Label text="DNI: ">
-                     <HBox.margin>
-                        <Insets left="25.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Sylfaen" size="20.0" />
-                     </font>
-                  </Label>
-                  <TextField disable="true" prefWidth="250.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </TextField>
-               </children>
-               <padding>
-                  <Insets top="15.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <Label text="Género:  ">
                      <HBox.margin>
@@ -150,7 +130,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <TextField disable="true" prefWidth="250.0">
+                  <TextField id="txtGenero" fx:id="txtGenero" disable="true" prefWidth="250.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -171,8 +151,8 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextArea layoutX="156.0" layoutY="245.0" prefHeight="151.0" prefWidth="949.0" style="-fx-background-color: #FFFFFF;" />
-      <TextArea layoutX="158.0" layoutY="425.0" prefHeight="149.0" prefWidth="949.0" style="-fx-background-color: #FFFFFF;" />
+      <TextArea id="txtAreaReceta" fx:id="txtAreaReceta" layoutX="156.0" layoutY="245.0" prefHeight="151.0" prefWidth="949.0" style="-fx-background-color: #FFFFFF;" />
+      <TextArea id="txtAreaDiagnostico" fx:id="txtAreaDiagnostico" layoutX="158.0" layoutY="425.0" prefHeight="149.0" prefWidth="949.0" style="-fx-background-color: #FFFFFF;" />
       <Text fill="#05212c" layoutX="46.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receta:">
          <font>
             <Font name="Times New Roman" size="26.0" />
@@ -183,7 +163,7 @@
             <Font name="Times New Roman" size="25.0" />
          </font>
       </Text>
-      <Button layoutX="482.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="172.0" style="-fx-background-color: #E6E6FA; -fx-border-color: D0BEA7; -fx-border-radius: 20;" stylesheets="@atencionpaciente.css" text="Guardar">
+      <Button id="btnGuardar" fx:id="btnGuardar" layoutX="482.0" layoutY="598.0" mnemonicParsing="false" onAction="#guardarAtencion" prefHeight="41.0" prefWidth="172.0" style="-fx-background-color: #E6E6FA; -fx-border-color: D0BEA7;" stylesheets="@atencionpaciente.css" text="Guardar">
          <font>
             <Font name="Serif Regular" size="23.0" />
          </font></Button>
