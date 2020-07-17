@@ -121,14 +121,9 @@ public class RegistrosController implements Initializable {
         if (event.getTarget() == btnGuardarDoctor) {
             FileWriter writer = null;
             try {
-                BufferedReader br = new BufferedReader(new FileReader("medico.txt"));
                 String ruta = "medico.txt"; //ruta del archivo que se va a leer
-                writer = new FileWriter(ruta);
-                if (br.readLine() != null) {
-                    writer.write(txtNombreDoctor.getText() + "|" + txtApellidoDoctor.getText() + "|" + cmbEspecialidad.getValue() + "\n");
-                } else {
-                    writer.append(txtNombreDoctor.getText() + "|" + txtApellidoDoctor.getText() + "|" + cmbEspecialidad.getValue() + "\n");
-                }
+                writer = new FileWriter(ruta, true);
+                writer.write(txtNombreDoctor.getText() + "|" + txtApellidoDoctor.getText() + "|" + cmbEspecialidad.getValue() + "\n");
                 writer.close();
             } catch (IOException ex) {
                 System.out.println("Archivo no encontrado");
@@ -137,8 +132,8 @@ public class RegistrosController implements Initializable {
             txtNombreDoctor.setText("");
             txtApellidoDoctor.setText("");
             cmbEspecialidad.setValue("");
+            
         }
-
     }
 
     /**
@@ -186,7 +181,7 @@ public class RegistrosController implements Initializable {
                 if (br.readLine() != null) {
                     writer.write(txtNumeroPuesto.getText() + "|" + cmbMedicoresponsable.getValue() + "\n");
                 } else {
-                   writer.write(txtNumeroPuesto.getText() + "|" + cmbMedicoresponsable.getValue() + "\n");
+                    writer.write(txtNumeroPuesto.getText() + "|" + cmbMedicoresponsable.getValue() + "\n");
                 }
                 writer.close();
             } catch (IOException ex) {

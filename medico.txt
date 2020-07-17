@@ -1,1 +1,3 @@
 Claudia|Sofia|Cardiología
+Claudia|Asanza|Alergología
+Camila|Yanina|Dermatología
