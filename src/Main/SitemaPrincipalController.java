@@ -37,6 +37,8 @@ public class SitemaPrincipalController {
     private Queue<Puesto> puestosLibres;
     private PriorityQueue<Turno> turnos;
     
+    
+    
     private static SitemaPrincipalController singleInstance;
     
     /**

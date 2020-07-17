@@ -5,6 +5,11 @@
  */
 package Main;
 
+import ComponentesSistema.GeneradorTurnos;
+import ComponentesSistema.Paciente;
+import ComponentesSistema.Sintoma;
+import ComponentesSistema.Turno;
+import FileReaders.SintomasFileReader;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -35,6 +40,8 @@ public class RegistrosController implements Initializable {
     //FUNCIONALIDAD COMBOBOX
     ObservableList<String> Lgenero;
     ObservableList<String> LEspecialidad;
+    
+    FileReader reader;
     ObservableList<String> LSintomas = leerArchivo("sintomas.txt");
     ObservableList<String> LMedico = leerArchivo("medico.txt");  //AGREGAR INFORMACION
     ObservableList<String> LPuesto = leerArchivo("puesto.txt"); // AGREGAR INFORMACION
@@ -141,29 +148,36 @@ public class RegistrosController implements Initializable {
      */
     @FXML
     void guardarPaciente(ActionEvent event) {
-        if (event.getTarget() == btnGuardarPaciente) {
-            FileWriter writer = null;
-            try {
-                BufferedReader br = new BufferedReader(new FileReader("paciente.txt"));
-                String ruta = "paciente.txt"; //ruta del archivo que se va a leer
-                writer = new FileWriter(ruta);
-                if (br.readLine() != null) {
-                    writer.write(txtNombrePaciente.getText() + "|" + txtApellidoPaciente.getText() + "|" + cmbGenero.getValue() + "|" + txtEdad.getText() + "|" + cmbSintomas.getValue() + "\n");
-                } else {
-                    writer.append(txtNombrePaciente.getText() + "|" + txtApellidoPaciente.getText() + "|" + cmbGenero.getValue() + "|" + txtEdad.getText() + "|" + cmbSintomas.getValue() + "\n");
-                }
-                writer.close();
-            } catch (IOException ex) {
-                System.out.println("Archivo no encontrado");
+        FileWriter writer = null;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("paciente.txt"));
+            String ruta = "paciente.txt"; //ruta del archivo que se va a leer
+            writer = new FileWriter(ruta);
+            if (br.readLine() != null) {
+                writer.write(txtNombrePaciente.getText() + "|" + txtApellidoPaciente.getText() + "|" + cmbGenero.getValue() + "|" + txtEdad.getText() + "|" + cmbSintomas.getValue() + "\n");
+            } else {
+                writer.append(txtNombrePaciente.getText() + "|" + txtApellidoPaciente.getText() + "|" + cmbGenero.getValue() + "|" + txtEdad.getText() + "|" + cmbSintomas.getValue() + "\n");
             }
-
-            txtNombrePaciente.setText("");
-            txtApellidoPaciente.setText("");
-            cmbEspecialidad.setValue("");
-            cmbSintomas.setValue("");
-            txtEdad.setText("");
+            writer.close();
+        } catch (IOException ex) {
+            System.out.println("Archivo no encontrado");
         }
+//        Paciente p =new Paciente(txtNombrePaciente.getText(),
+//        txtApellidoPaciente.getText(),
+//                cmbGenero.getValue(),
+//                txtEdad.getText(),
+//                cmbSintomas.getValue()
+//        );
+//        Turno t = GeneradorTurnos.generarTurnoConPaciente(p) ;
+
+
+        txtNombrePaciente.setText("");
+        txtApellidoPaciente.setText("");
+        cmbEspecialidad.setValue("");
+        cmbSintomas.setValue("");
+        txtEdad.setText("");
         SitemaPrincipalController principal = SitemaPrincipalController.getInstance();
+        
 
     }
 
@@ -234,6 +248,11 @@ public class RegistrosController implements Initializable {
 
         }
     }
+
+    public RegistrosController() {
+    }
+    
+    
 
     /**
      *
