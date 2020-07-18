@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author USUARIO
  */
-public class Turno implements Serializable,ClassSerializer{
+public class Turno implements Serializable{
     private Paciente paciente;
     private String turno;
     private static Map<Integer,String> asignacion;
@@ -48,7 +48,7 @@ public class Turno implements Serializable,ClassSerializer{
     }
 
     public void guardarTurno(){
-        guardarObjeto("turno.ser",this);
+        ClassSerializer.guardarObjeto("turno.ser",this);
     }
     
 

@@ -5,7 +5,10 @@
  */
 package Main;
 
+import FXMLControllers.RegistrosController;
+import Resources.CloseAlert;
 import java.io.IOException;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -15,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -36,6 +40,16 @@ public class FXMain extends Application {
         
         loadFXML("/FXMLFiles/SistemaPrincipal.fxml",primaryStage);
         loadFXML("/FXMLFiles/Registros.fxml",anotherStage);
+        primaryStage.setOnCloseRequest(e->{
+            Optional<ButtonType> result = CloseAlert.confirmation();
+            if(result.get()==ButtonType.OK){
+                RegistrosController registros = RegistrosController.getInstance();
+                registros.serializarListas();
+                System.exit(0);
+            }else{
+                e.consume();
+            }
+        });
     }
     
     public void loadFXML(String source,Stage stage){

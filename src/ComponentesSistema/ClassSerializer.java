@@ -14,14 +14,10 @@ import java.io.ObjectOutputStream;
  *
  * @author PC
  */
-public interface ClassSerializer {
-    public default void  guardarObjeto(String source, Object o){
+public class ClassSerializer {
+    public static void  guardarObjeto(String source, Object o){
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(source,true)){
-                protected void writeStreamHeader() throws IOException {
-                    reset();
-            }
-            };
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(source));
             oos.writeObject(o);
             oos.flush();
         } catch (FileNotFoundException ex) {

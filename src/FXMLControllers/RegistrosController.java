@@ -5,6 +5,7 @@
  */
 package FXMLControllers;
 
+import ComponentesSistema.ClassSerializer;
 import ComponentesSistema.GeneradorTurnos;
 import ComponentesSistema.Medico;
 import ComponentesSistema.Paciente;
@@ -39,6 +40,8 @@ import javafx.scene.layout.AnchorPane;
  * @author USUARIO
  */
 public class RegistrosController implements Initializable {
+    
+    private static RegistrosController singleInstance;
     
     //Instancia Pagina Principal
     SitemaPrincipalController principal;
@@ -87,7 +90,12 @@ public class RegistrosController implements Initializable {
     private Button btnGuardarPuesto;
 
     
-    
+    public static RegistrosController getInstance(){
+        if(singleInstance == null){
+            singleInstance = new RegistrosController();
+        }
+        return singleInstance;
+    }
     
     
     
@@ -111,7 +119,6 @@ public class RegistrosController implements Initializable {
         Medico medico = new Medico(txtNombreDoctor.getText(),
                         txtApellidoDoctor.getText(),
                         cmbEspecialidad.getValue());
-        medico.guardarMedico();
         cmbMedicoresponsable.getItems().add(medico);
         txtNombreDoctor.setText("");
         txtApellidoDoctor.setText("");
@@ -231,6 +238,12 @@ public class RegistrosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         loadData();
         cmbSintomas.setEditable(false);
+    }
+    
+    
+    public void serializarListas(){
+        ClassSerializer.guardarObjeto("medicos.ser",LMedico);
+        ClassSerializer.guardarObjeto("puestos.ser", LPuesto);
     }
 
 }

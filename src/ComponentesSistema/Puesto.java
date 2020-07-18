@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author USUARIO
  */
-public class Puesto implements Serializable, ClassSerializer{
+public class Puesto implements Serializable{
     private String numero;
     private Medico medico;
    
@@ -39,7 +39,7 @@ public class Puesto implements Serializable, ClassSerializer{
     }
 
     public void guardarPuesto(){
-        guardarObjeto("puestos.ser",this);
+        ClassSerializer.guardarObjeto("puestos.ser",this);
     }
     
     @Override

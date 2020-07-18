@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author USUARIO
  */
-public class Medico implements Serializable,ClassSerializer{
+public class Medico implements Serializable{
     private String nombre;
     private String apellido;
     private String especialidad;
@@ -59,7 +59,7 @@ public class Medico implements Serializable,ClassSerializer{
     }
     
     public void guardarMedico(){
-        guardarObjeto("medicos.ser",this);
+        ClassSerializer.guardarObjeto("medicos.ser",this);
     }
 
     
