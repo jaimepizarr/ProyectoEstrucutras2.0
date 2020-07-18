@@ -1,4 +1,4 @@
-package Main;
+package FXMLControllers;
 
 import ComponentesSistema.Puesto;
 import ComponentesSistema.Turno;
@@ -75,8 +75,8 @@ public class SitemaPrincipalController implements Initializable{
     /**
      *Method for assigning places to a turn.
      */
-    private void asignarPuestoATurno() {
-        if (puestosLibres.size() > 0) {
+    public void asignarPuestoATurno() {
+        if (puestosLibres.size() > 0 && !turnos.isEmpty()) {
             Turno t = turnos.poll();
             Puesto p = puestosLibres.poll();
             TurnoPuesto tp = new TurnoPuesto(t,p);

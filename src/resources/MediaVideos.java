@@ -33,7 +33,7 @@ public class MediaVideos {
          CircularLinkedList<String> videosList= new CircularLinkedList<>();
         try {
            
-            Scanner sc =new Scanner(new File("/resources/videos.txt"));
+            Scanner sc =new Scanner(new File("videos.txt"));
             while (sc.hasNextLine()) {
                 
                 String line = sc.nextLine();

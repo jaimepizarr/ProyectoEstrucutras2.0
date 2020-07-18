@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author USUARIO
  */
-public class Medico implements Serializable{
+public class Medico implements Serializable,ClassSerializer{
     private String nombre;
     private String apellido;
     private String especialidad;
@@ -55,20 +55,13 @@ public class Medico implements Serializable{
 
     @Override
     public String toString() {
-        return "Medico{" + "nombre=" + nombre + ", apellido=" + apellido + ", especialidad=" + especialidad + '}';
+        return nombre + " " + apellido +" - " +especialidad;
     }
     
     public void guardarMedico(){
-        try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("medicos.ser"));
-            oos.writeObject(this);
-            oos.flush();
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+        guardarObjeto("medicos.ser",this);
     }
+
     
     
     

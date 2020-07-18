@@ -35,12 +35,14 @@ public class MedicoFileReader extends LectorArchivos {
                 if(nuevo instanceof Medico){
                     lista.add((Medico)nuevo);
                 }
+                nuevo = ois.readObject();
             }
+            ois.close();
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(Medico.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException e) {
-            System.out.println("Archivo no encontrado");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MedicoFileReader.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            System.out.println(e.getMessage());
+        } 
         return lista;
     }
    

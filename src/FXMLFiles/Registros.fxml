@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1093.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.RegistrosController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1093.0" style="-fx-background-color: #FFFFFF;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLControllers.RegistrosController">
     <stylesheets>
         <URL value="@atencionpaciente.css" />
     </stylesheets>
@@ -54,14 +54,14 @@
       <Line endX="-642.0" endY="336.0" layoutX="658.0" layoutY="361.0" startX="418.0" startY="336.0" />
       <AnchorPane id="hEliminarPuesto" fx:id="hEliminarPuesto" layoutX="571.0" layoutY="327.0" prefHeight="360.0" prefWidth="517.0" visible="false">
          <children>
-            <ComboBox fx:id="cmbPuesto" editable="true" layoutX="80.0" layoutY="98.0" prefHeight="27.0" prefWidth="358.0" promptText="Elegir puesto a eliminar" />
+            <ComboBox fx:id="cmbPuesto" layoutX="80.0" layoutY="98.0" prefHeight="27.0" prefWidth="358.0" promptText="Elegir puesto a eliminar" />
             <Text layoutX="218.0" layoutY="41.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar Puesto" />
          </children></AnchorPane>
       <AnchorPane id="hCrearPuesto" fx:id="hCrearPuesto" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
          <children>
             <Text layoutX="216.0" layoutY="37.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Puesto" />
             <TextField fx:id="txtNumeroPuesto" layoutX="76.0" layoutY="81.0" prefHeight="27.0" prefWidth="358.0" promptText="Numero" />
-            <ComboBox fx:id="cmbMedicoresponsable" editable="true" layoutX="73.0" layoutY="135.0" prefHeight="27.0" prefWidth="361.0" promptText="Medico Responsable" />
+            <ComboBox fx:id="cmbMedicoresponsable" layoutX="73.0" layoutY="135.0" prefHeight="27.0" prefWidth="361.0" promptText="Medico Responsable" />
             <Button id="ButtonCrearPuesto" fx:id="btnGuardarPuesto" layoutX="211.0" layoutY="206.0" mnemonicParsing="false" onAction="#guardarPuesto" onMouseClicked="#handleButtonAction" prefHeight="42.0" prefWidth="95.0" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE" />
          </children></AnchorPane>
       <AnchorPane id="hRegistroDoctores" fx:id="hRegistroDoctores" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0">
@@ -69,7 +69,7 @@
             <Text layoutX="207.0" layoutY="32.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de doctores" />
             <TextField id="txtNombreDoctor" fx:id="txtNombreDoctor" layoutX="109.0" layoutY="69.0" prefHeight="27.0" prefWidth="324.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
             <TextField id="txtApellidoDoctor" fx:id="txtApellidoDoctor" layoutX="109.0" layoutY="120.0" prefHeight="27.0" prefWidth="324.0" promptText="Apellido" stylesheets="@../css/textfield.css" />
-            <ComboBox fx:id="cmbEspecialidad" editable="true" layoutX="110.0" layoutY="177.0" prefHeight="27.0" prefWidth="323.0" promptText="Especialidad" />
+            <ComboBox fx:id="cmbEspecialidad" layoutX="110.0" layoutY="177.0" prefHeight="27.0" prefWidth="323.0" promptText="Especialidad" />
             <Button id="ButtonCrearPuesto" fx:id="btnGuardarDoctor" layoutX="214.0" layoutY="235.0" mnemonicParsing="false" onAction="#guardarDoctor" onMouseClicked="#handleButtonAction" prefHeight="42.0" prefWidth="95.0" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE" />
          </children>
       </AnchorPane>
@@ -80,7 +80,7 @@
             <TextField id="txtApellidoPaciente" fx:id="txtApellidoPaciente" layoutX="104.0" layoutY="106.0" prefHeight="27.0" prefWidth="316.0" promptText="Apellido" stylesheets="@../css/textfield.css" />
             <TextField id="txtEdad" fx:id="txtEdad" layoutX="104.0" layoutY="153.0" prefHeight="27.0" prefWidth="314.0" promptText="Edad" stylesheets="@../css/textfield.css" />
             <ComboBox id="cmbGenero" fx:id="cmbGenero" layoutX="101.0" layoutY="207.0" prefHeight="27.0" prefWidth="318.0" promptText="Genero" />
-            <ComboBox id="cmbSintomas" fx:id="cmbSintomas" editable="true" layoutX="102.0" layoutY="253.0" prefHeight="27.0" prefWidth="318.0" promptText="Síntomas" />
+            <ComboBox id="cmbSintomas" fx:id="cmbSintomas" layoutX="102.0" layoutY="253.0" prefHeight="27.0" prefWidth="318.0" promptText="Síntomas" />
             <Button id="ButtonCrearPuesto" fx:id="btnGuardarPaciente" layoutX="211.0" layoutY="304.0" mnemonicParsing="false" onAction="#guardarPaciente" onMouseClicked="#handleButtonAction" prefHeight="42.0" prefWidth="95.0" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE" />
          </children>
       </AnchorPane>

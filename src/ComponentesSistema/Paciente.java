@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author USUARIO
  */
-public class Paciente implements Serializable{
+public class Paciente implements Serializable,ClassSerializer{
     private String nombre;
     private String apellido;
     private String genero;
@@ -78,15 +78,7 @@ public class Paciente implements Serializable{
     }
     
     public void guardarPaciente(){
-        try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("pacientes.ser"));
-            oos.writeObject(this);
-            oos.flush();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        guardarObjeto("pacientes.ser",this);
     }
     
     

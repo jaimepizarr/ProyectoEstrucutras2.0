@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Main;
+package FXMLControllers;
 
 import ComponentesSistema.GeneradorTurnos;
 import ComponentesSistema.Medico;
@@ -39,14 +39,20 @@ import javafx.scene.layout.AnchorPane;
  * @author USUARIO
  */
 public class RegistrosController implements Initializable {
+    
+    //Instancia Pagina Principal
+    SitemaPrincipalController principal;
 
     //FUNCIONALIDAD COMBOBOX
-    ObservableList<String> Lgenero;
-    ObservableList<String> LEspecialidad;
+    private ObservableList<String> Lgenero;
+    private ObservableList<String> LEspecialidad;
+    private ObservableList<Sintoma> LSintomas;
+    private ObservableList<Medico> LMedico;  //AGREGAR INFORMACION
+    private ObservableList<Puesto> LPuesto; // AGREGAR INFORMACION
+    private LectorArchivos reader;
 
-    ObservableList<Sintoma> LSintomas;
-    ObservableList<Medico> LMedico;  //AGREGAR INFORMACION
-    ObservableList<Puesto> LPuesto; // AGREGAR INFORMACION
+    
+
     @FXML
     private ComboBox<String> cmbGenero;
     @FXML
@@ -57,33 +63,18 @@ public class RegistrosController implements Initializable {
     private ComboBox<Medico> cmbMedicoresponsable;
     @FXML
     private ComboBox<Puesto> cmbPuesto;
-    LectorArchivos reader;
-
-    /**
-     * Method for set Itemns to combobox.
-     */
-    private void loadData() {
-        cmbGenero.getItems().setAll(new String[]{"MASCULINO", "FEMENINO"});
-        cmbEspecialidad.getItems().setAll(new String[]{"Medicina General", "Alergología", "Cardiología", "Angiología", "Cirugía General", "Dermatología", "Endocrinología", "Ecografía", "Hematología"});
-        cmbSintomas.getItems().setAll(LSintomas);
-        cmbMedicoresponsable.getItems().setAll(LMedico);
-//        cmbPuesto.getItems().setAll(LPuesto);
-    }
-
+    
     //TEXT FIELDS
     @FXML
     private TextField txtNumeroPuesto;
     @FXML
     private TextField txtNombreDoctor;
-
     @FXML
     private TextField txtApellidoDoctor;
     @FXML
     private TextField txtNombrePaciente;
-
     @FXML
     private TextField txtApellidoPaciente;
-
     @FXML
     private TextField txtEdad;
 
@@ -95,6 +86,23 @@ public class RegistrosController implements Initializable {
     @FXML
     private Button btnGuardarPuesto;
 
+    
+    
+    
+    
+    
+    /**
+     * Method for set Itemns to combobox.
+     */
+    private void loadData() {
+        cmbGenero.getItems().setAll(new String[]{"MASCULINO", "FEMENINO"});
+        cmbEspecialidad.getItems().setAll(new String[]{"Medicina General", "Alergología", "Cardiología", "Angiología", "Cirugía General", "Dermatología", "Endocrinología", "Ecografía", "Hematología"});
+        cmbSintomas.getItems().setAll(LSintomas);
+        cmbMedicoresponsable.getItems().setAll(LMedico);
+//        cmbPuesto.getItems().setAll(LPuesto);
+    }
+
+
     /**
      * Method for save Doctor data.
      */
@@ -104,7 +112,10 @@ public class RegistrosController implements Initializable {
                         txtApellidoDoctor.getText(),
                         cmbEspecialidad.getValue());
         medico.guardarMedico();
-        LMedico.add(medico);
+        cmbMedicoresponsable.getItems().add(medico);
+        txtNombreDoctor.setText("");
+        txtApellidoDoctor.setText("");
+        cmbEspecialidad.setValue(null);
     }
 
     /**
@@ -126,8 +137,8 @@ public class RegistrosController implements Initializable {
         cmbEspecialidad.setValue("");
         cmbSintomas.setValue(null);
         txtEdad.setText("");
-        SitemaPrincipalController principal = SitemaPrincipalController.getInstance();
-
+        principal.getTurnos().offer(t);
+        principal.asignarPuestoATurno();
     }
 
     /**
@@ -135,23 +146,12 @@ public class RegistrosController implements Initializable {
      */
     @FXML
     void guardarPuesto(ActionEvent event) {
-        if (event.getTarget() == btnGuardarPuesto) {
-            FileWriter writer = null;
-            try {
-                BufferedReader br = new BufferedReader(new FileReader("puesto.txt"));
-                String ruta = "puesto.txt"; //ruta del archivo que se va a leer
-                writer = new FileWriter(ruta, true);
-
-                writer.write(txtNumeroPuesto.getText() + "|" + cmbMedicoresponsable.getValue() + "\n");
-
-                writer.close();
-            } catch (IOException ex) {
-                System.out.println("Archivo no encontrado");
-            }
-
-            txtNumeroPuesto.setText("");
-            cmbMedicoresponsable.setValue(null);
-        }
+        Puesto puesto = new Puesto(txtNumeroPuesto.getText(),cmbMedicoresponsable.getValue());
+        puesto.guardarPuesto();
+        principal.getPuestosLibres().add(puesto);
+        cmbPuesto.getItems().add(puesto);
+        txtNumeroPuesto.setText("");
+        cmbMedicoresponsable.setValue(null);
     }
 
     //FUNCIONALIDAD MENU REGISTROS.
@@ -195,17 +195,27 @@ public class RegistrosController implements Initializable {
 
         }
     }
-
+    
+    /**
+     * Constructor, Inicializa la instancia de la ventana principal
+     */
     public RegistrosController() {
+        principal = SitemaPrincipalController.getInstance();
         llenarListas();
         
     }
     
+    /**
+     * Llena las listas
+     */
     public void llenarListas(){
         reader = new MedicoFileReader();
-        LMedico = reader.LeerArchivo("medico.txt");
+        System.out.println("Medicos ser");
+        LMedico = reader.LeerArchivo("medicos.ser");
+        System.out.println("Puestos Ser");
         reader = new PuestoFileReader();
-        //LPuesto = reader.LeerArchivo("puesto.txt");
+        LPuesto = reader.LeerArchivo("puestos.ser");
+        System.out.println("Sintomas.txt");
         reader = new SintomasFileReader();
         LSintomas = reader.LeerArchivo("sintomas.txt");
     }
