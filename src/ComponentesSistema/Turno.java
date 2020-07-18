@@ -5,13 +5,14 @@
  */
 package ComponentesSistema;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
  *
  * @author USUARIO
  */
-public class Turno {
+public class Turno implements Serializable{
     private Paciente paciente;
     private String turno;
     private static Map<Integer,String> asignacion;

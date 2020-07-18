@@ -1,3 +1,4 @@
 Claudia|Sofia|Cardiología
 Claudia|Asanza|Alergología
 Camila|Yanina|Dermatología
+Jorge|Perez|Endocrinología

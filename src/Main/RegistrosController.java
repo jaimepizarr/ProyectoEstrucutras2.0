@@ -44,10 +44,9 @@ public class RegistrosController implements Initializable {
     ObservableList<String> Lgenero;
     ObservableList<String> LEspecialidad;
 
-    FileReader reader;
-    ObservableList<Sintoma> LSintomas = SintomasFileReader.LeerArchivo1("ola");
-    ObservableList<Medico> LMedico = MedicoFileReader.leerArchivo("medico.txt");  //AGREGAR INFORMACION
-    ObservableList<Puesto> LPuesto = PuestoFileReader.leerArchivo("puesto.txt"); // AGREGAR INFORMACION
+    ObservableList<Sintoma> LSintomas;
+    ObservableList<Medico> LMedico;  //AGREGAR INFORMACION
+    ObservableList<Puesto> LPuesto; // AGREGAR INFORMACION
     @FXML
     private ComboBox<String> cmbGenero;
     @FXML
@@ -58,6 +57,7 @@ public class RegistrosController implements Initializable {
     private ComboBox<Medico> cmbMedicoresponsable;
     @FXML
     private ComboBox<Puesto> cmbPuesto;
+    LectorArchivos reader;
 
     /**
      * Method for set Itemns to combobox.
@@ -67,7 +67,7 @@ public class RegistrosController implements Initializable {
         cmbEspecialidad.getItems().setAll(new String[]{"Medicina General", "Alergología", "Cardiología", "Angiología", "Cirugía General", "Dermatología", "Endocrinología", "Ecografía", "Hematología"});
         cmbSintomas.getItems().setAll(LSintomas);
         cmbMedicoresponsable.getItems().setAll(LMedico);
-        cmbPuesto.getItems().setAll(LPuesto);
+//        cmbPuesto.getItems().setAll(LPuesto);
     }
 
     //TEXT FIELDS
@@ -100,22 +100,11 @@ public class RegistrosController implements Initializable {
      */
     @FXML
     void guardarDoctor(ActionEvent event) {
-        if (event.getTarget() == btnGuardarDoctor) {
-            FileWriter writer = null;
-            try {
-                String ruta = "medico.txt"; //ruta del archivo que se va a leer
-                writer = new FileWriter(ruta, true);
-                writer.write(txtNombreDoctor.getText() + "|" + txtApellidoDoctor.getText() + "|" + cmbEspecialidad.getValue() + "\n");
-                writer.close();
-            } catch (IOException ex) {
-                System.out.println("Archivo no encontrado");
-            }
-
-            txtNombreDoctor.setText("");
-            txtApellidoDoctor.setText("");
-            cmbEspecialidad.setValue("");
-
-        }
+        Medico medico = new Medico(txtNombreDoctor.getText(),
+                        txtApellidoDoctor.getText(),
+                        cmbEspecialidad.getValue());
+        medico.guardarMedico();
+        LMedico.add(medico);
     }
 
     /**
@@ -123,26 +112,15 @@ public class RegistrosController implements Initializable {
      */
     @FXML
     void guardarPaciente(ActionEvent event) {
-        FileWriter writer = null;
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("paciente.txt"));
-            String ruta = "paciente.txt"; //ruta del archivo que se va a leer
-            writer = new FileWriter(ruta, true);
-
-            writer.write(txtNombrePaciente.getText() + "|" + txtApellidoPaciente.getText() + "|" + cmbGenero.getValue() + "|" + txtEdad.getText() + "|" + cmbSintomas.getValue() + "\n");
-
-            writer.close();
-        } catch (IOException ex) {
-            System.out.println("Archivo no encontrado");
-        }
-//        Paciente p =new Paciente(txtNombrePaciente.getText(),
-//        txtApellidoPaciente.getText(),
-//                cmbGenero.getValue(),
-//                txtEdad.getText(),
-//                cmbSintomas.getValue()
-//        );
-//        Turno t = GeneradorTurnos.generarTurnoConPaciente(p) ;
-
+        Paciente p =new Paciente(txtNombrePaciente.getText(),
+        txtApellidoPaciente.getText(),
+                cmbGenero.getValue(),
+                Integer.parseInt(txtEdad.getText()),
+                cmbSintomas.getValue()
+        );
+        p.guardarPaciente();
+        Turno t = GeneradorTurnos.generarTurnoConPaciente(p) ;
+        
         txtNombrePaciente.setText("");
         txtApellidoPaciente.setText("");
         cmbEspecialidad.setValue("");
@@ -219,7 +197,19 @@ public class RegistrosController implements Initializable {
     }
 
     public RegistrosController() {
+        llenarListas();
+        
     }
+    
+    public void llenarListas(){
+        reader = new MedicoFileReader();
+        LMedico = reader.LeerArchivo("medico.txt");
+        reader = new PuestoFileReader();
+        //LPuesto = reader.LeerArchivo("puesto.txt");
+        reader = new SintomasFileReader();
+        LSintomas = reader.LeerArchivo("sintomas.txt");
+    }
+    
 
     /**
      *
@@ -230,6 +220,7 @@ public class RegistrosController implements Initializable {
 
     public void initialize(URL url, ResourceBundle rb) {
         loadData();
+        cmbSintomas.setEditable(false);
     }
 
 }

@@ -8,6 +8,7 @@ package ComponentesSistema;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -15,7 +16,7 @@ import java.util.LinkedList;
  *
  * @author USUARIO
  */
-public class Sintoma {
+public class Sintoma implements Serializable{
     private String nombre;
     private int prioridad;
 

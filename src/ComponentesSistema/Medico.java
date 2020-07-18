@@ -5,14 +5,23 @@
  */
 package ComponentesSistema;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author USUARIO
  */
-public class Medico {
+public class Medico implements Serializable{
     private String nombre;
     private String apellido;
     private String especialidad;
+    private Puesto puesto;
 
     public Medico(String nombre, String apellido, String especialidad) {
         this.nombre = nombre;
@@ -49,8 +58,17 @@ public class Medico {
         return "Medico{" + "nombre=" + nombre + ", apellido=" + apellido + ", especialidad=" + especialidad + '}';
     }
     
-    
-    public void AlmacenarDatos(){}
+    public void guardarMedico(){
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("medicos.ser"));
+            oos.writeObject(this);
+            oos.flush();
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
     
     

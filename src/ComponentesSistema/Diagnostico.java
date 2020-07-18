@@ -5,11 +5,13 @@
  */
 package ComponentesSistema;
 
+import java.io.Serializable;
+
 /**
  *
  * @author USUARIO
  */
-public class Diagnostico {
+public class Diagnostico implements Serializable {
     private String diagnostico;
 
     public Diagnostico(String diagnostico) {

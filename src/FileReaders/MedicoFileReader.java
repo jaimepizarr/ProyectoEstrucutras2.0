@@ -7,7 +7,11 @@ package FileReaders;
 
 import ComponentesSistema.Medico;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -15,7 +19,7 @@ import javafx.collections.ObservableList;
  *
  * @author PC
  */
-public class MedicoFileReader implements FileReader {
+public class MedicoFileReader extends LectorArchivos {
     /**
      * Method to read the medico file.
      *
@@ -24,19 +28,18 @@ public class MedicoFileReader implements FileReader {
     @Override
     public ObservableList LeerArchivo(String s) {
         ObservableList<Medico> lista = FXCollections.observableArrayList();
-        try ( BufferedReader br = new BufferedReader(new java.io.FileReader(s))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                String[] data = linea.split("\\|");
-                String nombre = data[1];
-                String apellido = data[2];
-                String especialidad = data[3];
-                Medico medico = new Medico(nombre, apellido, especialidad);
-                lista.add(medico);
-
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("medicos.ser"));
+            Object nuevo = ois.readObject();
+            while(nuevo!= null){
+                if(nuevo instanceof Medico){
+                    lista.add((Medico)nuevo);
+                }
             }
         } catch (IOException e) {
             System.out.println("Archivo no encontrado");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MedicoFileReader.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
     }

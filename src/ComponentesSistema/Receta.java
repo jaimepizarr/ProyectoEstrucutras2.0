@@ -5,11 +5,13 @@
  */
 package ComponentesSistema;
 
+import java.io.Serializable;
+
 /**
  *
  * @author USUARIO
  */
-public class Receta {
+public class Receta{
     private Integer idReceta;
     private String contenido;
 

@@ -16,7 +16,7 @@ import javafx.collections.ObservableList;
  *
  * @author USUARIO
  */
-public class PuestoFileReader implements FileReader {
+public class PuestoFileReader extends LectorArchivos {
     /**
      * Method to read the puesto file.
      *
@@ -29,8 +29,8 @@ public class PuestoFileReader implements FileReader {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] data = linea.split("\\|");
-                String numero = data[1];
-                Medico medico = new Medico(data[2], data[3], data[4]);
+                String numero = data[0];
+                Medico medico = new Medico(data[1], data[2], data[3]);
                 String especialidad = data[3];
                 Puesto puesto = new Puesto(numero, medico);
                 lista.add(puesto);
