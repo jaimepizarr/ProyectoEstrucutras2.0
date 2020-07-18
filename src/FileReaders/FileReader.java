@@ -11,6 +11,6 @@ import javafx.collections.ObservableList;
  *
  * @author PC
  */
-public interface FileReader<E> {
-    public ObservableList<E> leerArchivo(String s);
+public interface FileReader{
+    public  ObservableList LeerArchivo(String s);
 }

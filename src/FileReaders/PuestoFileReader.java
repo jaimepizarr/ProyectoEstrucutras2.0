@@ -6,7 +6,7 @@
 package FileReaders;
 
 import ComponentesSistema.Medico;
-import ComponentesSistema.Sintoma;
+import ComponentesSistema.Puesto;
 import java.io.BufferedReader;
 import java.io.IOException;
 import javafx.collections.FXCollections;
@@ -14,22 +14,22 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author PC
+ * @author USUARIO
  */
-public class SintomasFileReader implements FileReader {
+public class PuestoFileReader implements FileReader {
 
     @Override
     public ObservableList LeerArchivo(String s) {
-        ObservableList<Sintoma> lista = FXCollections.observableArrayList();
+        ObservableList<Puesto> lista = FXCollections.observableArrayList();
         try ( BufferedReader br = new BufferedReader(new java.io.FileReader(s))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] data = linea.split("\\|");
-                String nombre = data[1];
-                int prioridad = Integer.parseInt(data[2]);
+                String numero = data[1];
+                Medico medico = new Medico(data[2], data[3], data[4]);
                 String especialidad = data[3];
-                Sintoma sintoma = new Sintoma(nombre,prioridad);
-                lista.add(sintoma);
+                Puesto puesto = new Puesto(numero, medico);
+                lista.add(puesto);
 
             }
         } catch (IOException e) {
@@ -37,5 +37,5 @@ public class SintomasFileReader implements FileReader {
         }
         return lista;
     }
-    
+
 }

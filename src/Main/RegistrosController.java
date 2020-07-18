@@ -6,9 +6,12 @@
 package Main;
 
 import ComponentesSistema.GeneradorTurnos;
+import ComponentesSistema.Medico;
 import ComponentesSistema.Paciente;
+import ComponentesSistema.Puesto;
 import ComponentesSistema.Sintoma;
 import ComponentesSistema.Turno;
+import FileReaders.*;
 import FileReaders.SintomasFileReader;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
@@ -42,19 +45,19 @@ public class RegistrosController implements Initializable {
     ObservableList<String> LEspecialidad;
     
     FileReader reader;
-    ObservableList<String> LSintomas = leerArchivo("sintomas.txt");
-    ObservableList<String> LMedico = leerArchivo("medico.txt");  //AGREGAR INFORMACION
-    ObservableList<String> LPuesto = leerArchivo("puesto.txt"); // AGREGAR INFORMACION
+    ObservableList<Sintoma> LSintomas = SintomasFileReader.LeerArchivo1("ola");
+    ObservableList<Medico> LMedico = MedicoFileReader.leerArchivo("medico.txt");  //AGREGAR INFORMACION
+    ObservableList<Puesto LPuesto = leerArchivo("puesto.txt"); // AGREGAR INFORMACION
     @FXML
     private ComboBox<String> cmbGenero;
     @FXML
     private ComboBox<String> cmbEspecialidad;
     @FXML
-    private ComboBox<String> cmbSintomas;
+    private ComboBox<Sintoma> cmbSintomas;
     @FXML
-    private ComboBox<String> cmbMedicoresponsable;
+    private ComboBox<Medico> cmbMedicoresponsable;
     @FXML
-    private ComboBox<String> cmbPuesto;
+    private ComboBox<Puesto> cmbPuesto;
 
     /**
      * Method for set Itemns to combobox.
@@ -72,8 +75,8 @@ public class RegistrosController implements Initializable {
      *
      * @return ObsevableList<String>
      */
-    private ObservableList<String> leerArchivo(String archivo) {
-        ObservableList<String> lista = FXCollections.observableArrayList();
+    private ObservableList<Medico> leerArchivo(String archivo) {
+        ObservableList<Medico> lista = FXCollections.observableArrayList();
         try ( BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -83,8 +86,11 @@ public class RegistrosController implements Initializable {
                     lista.add(sintoma_puesto);
                 }
                 if (archivo.equals("medico.txt")) {
-                    String NombreAp = data[0] + data[1];
-                    lista.add(NombreAp);
+                    String nombre = data[1];
+                    String apellido = data[2];
+                    String especialidad = data[3];
+                    Medico medico = new Medico(nombre,apellido, especialidad);
+                    lista.add(medico);
 
                 }
             }
