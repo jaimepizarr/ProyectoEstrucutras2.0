@@ -16,7 +16,11 @@ import javafx.collections.ObservableList;
  * @author PC
  */
 public class MedicoFileReader implements FileReader {
-
+    /**
+     * Method to read the medico file.
+     *
+     * @return ObsevableList
+     */
     @Override
     public ObservableList LeerArchivo(String s) {
         ObservableList<Medico> lista = FXCollections.observableArrayList();

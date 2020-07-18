@@ -43,11 +43,11 @@ public class RegistrosController implements Initializable {
     //FUNCIONALIDAD COMBOBOX
     ObservableList<String> Lgenero;
     ObservableList<String> LEspecialidad;
-    
+
     FileReader reader;
     ObservableList<Sintoma> LSintomas = SintomasFileReader.LeerArchivo1("ola");
     ObservableList<Medico> LMedico = MedicoFileReader.leerArchivo("medico.txt");  //AGREGAR INFORMACION
-    ObservableList<Puesto LPuesto = leerArchivo("puesto.txt"); // AGREGAR INFORMACION
+    ObservableList<Puesto> LPuesto = PuestoFileReader.leerArchivo("puesto.txt"); // AGREGAR INFORMACION
     @FXML
     private ComboBox<String> cmbGenero;
     @FXML
@@ -68,37 +68,6 @@ public class RegistrosController implements Initializable {
         cmbSintomas.getItems().setAll(LSintomas);
         cmbMedicoresponsable.getItems().setAll(LMedico);
         cmbPuesto.getItems().setAll(LPuesto);
-    }
-
-    /**
-     * Method for read data.
-     *
-     * @return ObsevableList<String>
-     */
-    private ObservableList<Medico> leerArchivo(String archivo) {
-        ObservableList<Medico> lista = FXCollections.observableArrayList();
-        try ( BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                String[] data = linea.split("\\|");
-                if (archivo.equals("sintomas.txt") || archivo.equals("puesto.txt")) { //Puesto y sintoma tendra la informacion requerida en la misma posicion
-                    String sintoma_puesto = data[0];
-                    lista.add(sintoma_puesto);
-                }
-                if (archivo.equals("medico.txt")) {
-                    String nombre = data[1];
-                    String apellido = data[2];
-                    String especialidad = data[3];
-                    Medico medico = new Medico(nombre,apellido, especialidad);
-                    lista.add(medico);
-
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Archivo no encontrado");
-        }
-        return lista;
-
     }
 
     //TEXT FIELDS
@@ -145,7 +114,7 @@ public class RegistrosController implements Initializable {
             txtNombreDoctor.setText("");
             txtApellidoDoctor.setText("");
             cmbEspecialidad.setValue("");
-            
+
         }
     }
 
@@ -158,12 +127,10 @@ public class RegistrosController implements Initializable {
         try {
             BufferedReader br = new BufferedReader(new FileReader("paciente.txt"));
             String ruta = "paciente.txt"; //ruta del archivo que se va a leer
-            writer = new FileWriter(ruta);
-            if (br.readLine() != null) {
-                writer.write(txtNombrePaciente.getText() + "|" + txtApellidoPaciente.getText() + "|" + cmbGenero.getValue() + "|" + txtEdad.getText() + "|" + cmbSintomas.getValue() + "\n");
-            } else {
-                writer.append(txtNombrePaciente.getText() + "|" + txtApellidoPaciente.getText() + "|" + cmbGenero.getValue() + "|" + txtEdad.getText() + "|" + cmbSintomas.getValue() + "\n");
-            }
+            writer = new FileWriter(ruta, true);
+
+            writer.write(txtNombrePaciente.getText() + "|" + txtApellidoPaciente.getText() + "|" + cmbGenero.getValue() + "|" + txtEdad.getText() + "|" + cmbSintomas.getValue() + "\n");
+
             writer.close();
         } catch (IOException ex) {
             System.out.println("Archivo no encontrado");
@@ -176,14 +143,12 @@ public class RegistrosController implements Initializable {
 //        );
 //        Turno t = GeneradorTurnos.generarTurnoConPaciente(p) ;
 
-
         txtNombrePaciente.setText("");
         txtApellidoPaciente.setText("");
         cmbEspecialidad.setValue("");
-        cmbSintomas.setValue("");
+        cmbSintomas.setValue(null);
         txtEdad.setText("");
         SitemaPrincipalController principal = SitemaPrincipalController.getInstance();
-        
 
     }
 
@@ -197,19 +162,17 @@ public class RegistrosController implements Initializable {
             try {
                 BufferedReader br = new BufferedReader(new FileReader("puesto.txt"));
                 String ruta = "puesto.txt"; //ruta del archivo que se va a leer
-                writer = new FileWriter(ruta);
-                if (br.readLine() != null) {
-                    writer.write(txtNumeroPuesto.getText() + "|" + cmbMedicoresponsable.getValue() + "\n");
-                } else {
-                    writer.write(txtNumeroPuesto.getText() + "|" + cmbMedicoresponsable.getValue() + "\n");
-                }
+                writer = new FileWriter(ruta, true);
+
+                writer.write(txtNumeroPuesto.getText() + "|" + cmbMedicoresponsable.getValue() + "\n");
+
                 writer.close();
             } catch (IOException ex) {
                 System.out.println("Archivo no encontrado");
             }
 
             txtNumeroPuesto.setText("");
-            cmbMedicoresponsable.setValue("");
+            cmbMedicoresponsable.setValue(null);
         }
     }
 
@@ -257,8 +220,6 @@ public class RegistrosController implements Initializable {
 
     public RegistrosController() {
     }
-    
-    
 
     /**
      *

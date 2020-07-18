@@ -17,7 +17,11 @@ import javafx.collections.ObservableList;
  * @author PC
  */
 public class SintomasFileReader implements FileReader {
-
+    /**
+     * Method to read the sintoma file.
+     *
+     * @return ObsevableList
+     */
     @Override
     public ObservableList LeerArchivo(String s) {
         ObservableList<Sintoma> lista = FXCollections.observableArrayList();
@@ -27,7 +31,6 @@ public class SintomasFileReader implements FileReader {
                 String[] data = linea.split("\\|");
                 String nombre = data[1];
                 int prioridad = Integer.parseInt(data[2]);
-                String especialidad = data[3];
                 Sintoma sintoma = new Sintoma(nombre,prioridad);
                 lista.add(sintoma);
 

@@ -17,7 +17,11 @@ import javafx.collections.ObservableList;
  * @author USUARIO
  */
 public class PuestoFileReader implements FileReader {
-
+    /**
+     * Method to read the puesto file.
+     *
+     * @return ObsevableList
+     */
     @Override
     public ObservableList LeerArchivo(String s) {
         ObservableList<Puesto> lista = FXCollections.observableArrayList();
