@@ -3,29 +3,37 @@ package Main;
 import ComponentesSistema.Puesto;
 import ComponentesSistema.Turno;
 import ComponentesSistema.TurnoPuesto;
+import TDA.CircularLinkedList;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import resources.MediaVideos;
 
 /**
  *
  * @author PC
  */
-public class SitemaPrincipalController {
+
+    
+public class SitemaPrincipalController implements Initializable{
 
     @FXML
     private ResourceBundle resources;
     @FXML
     private URL location;
     @FXML
-    private MediaView mediaView;
+    private MediaView media;
     @FXML
     private TableView<TurnoPuesto> tbTurnoPuesto;
     @FXML
@@ -62,12 +70,7 @@ public class SitemaPrincipalController {
         return singleInstance;
     }
 
-    @FXML
-    void initialize() {
-        assert mediaView != null : "fx:id=\"mediaView\" was not injected: check your FXML file 'FXML.fxml'.";
-        colTurno.setCellValueFactory(new PropertyValueFactory("turno"));
-        colPuesto.setCellValueFactory(new PropertyValueFactory("puesto"));
-    }
+  
 
     /**
      *Method for assigning places to a turn.
@@ -106,6 +109,46 @@ public class SitemaPrincipalController {
         this.turnos = turnos;
     }
     
+      @FXML
+     @Override
+    public void initialize(URL url, ResourceBundle rb) {
+         
+        
+       colTurno.setCellValueFactory(new PropertyValueFactory("turno"));
+        colPuesto.setCellValueFactory(new PropertyValueFactory("puesto"));
+        //System.out.println(url.toString());
+        //System.out.println("Prueba");
+        //mediaplayer= new MediaPlayer(new Media(this.getClass().getResource(MEDIA_URL).toExternalForm()));
+       // mediaplayer.setAutoPlay(true);
+        //media.setMediaPlayer(mediaplayer)
+     
+       
+           initMediaPlayer(media, urlsVideos);
+        
+    }
+    
+    
+    
+    
+     CircularLinkedList<String> urls= MediaVideos.readFileOfVideo();
+     Iterator<String> urlsVideos=urls.iterator();
+     
+ 
+
+    private void initMediaPlayer( final MediaView mediaView, final Iterator<String> urls)       {
+        
+         if (urlsVideos.hasNext()){
+       MediaPlayer mediaPlayer = new MediaPlayer(new Media(this.getClass().getResource(urlsVideos.next()).toExternalForm()));
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override public void run() {
+                initMediaPlayer(mediaView, (Iterator<String>) urls);
+            }
+        });
+        mediaView.setMediaPlayer(mediaPlayer);
+    } 
+      
+}
     
     
 }
