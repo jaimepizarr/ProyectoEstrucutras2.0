@@ -176,6 +176,7 @@ public class RegistrosController implements Initializable {
     @FXML
     void guardarPuesto(ActionEvent event) {
         Puesto puesto = new Puesto(txtNumeroPuesto.getText(), cmbMedicoresponsable.getValue());
+        cmbMedicoresponsable.getValue().setPuesto(puesto);
         principal.getPuestosLibres().add(puesto);
         LPuesto.add(puesto);
         loadData();
@@ -190,6 +191,7 @@ public class RegistrosController implements Initializable {
         ListIterator<Medico> lit = LMedico.listIterator();
         while (lit.hasNext()) {
             if (lit.next().getPuesto() != null) {
+                System.out.println("F");
                 lit.remove();
             }
         }

@@ -4,3 +4,5 @@ Alexandra|Pizarro|FEMENINO|20|Enrochamiento de piel
 Jaime|Pizarro|MASCULINO|19|Vomitos reiterados
 Claudia|Asanza|FEMENINO|20|Dolor de cabeza
 Nicole|Velez|FEMENINO|25|falta de aire
+Jorge|Guzman|MASCULINO|34|Opresion en el pecho
+Ronnie|Arteaga|MASCULINO|29|Mareo

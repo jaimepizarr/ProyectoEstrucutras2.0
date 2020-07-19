@@ -124,7 +124,7 @@ public class SitemaPrincipalController implements Initializable {
             Puesto p = puestosLibres.poll();
             TurnoPuesto tp = new TurnoPuesto(t, p);
             tableList.add(tp);
-            tbTurnoPuesto.refresh();
+            tbTurnoPuesto.setItems(tableList);
         }
     }
 
