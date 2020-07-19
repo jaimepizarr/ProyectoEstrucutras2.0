@@ -7,7 +7,7 @@ package Main;
 
 import FXMLControllers.RegistrosController;
 import FXMLControllers.SitemaPrincipalController;
-import Resources.CloseAlert;
+import Resources.Alerts;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -48,7 +48,7 @@ public class FXMain extends Application {
         
         
         primaryStage.setOnCloseRequest(e->{
-            Optional<ButtonType> result = CloseAlert.confirmation();
+            Optional<ButtonType> result = Alerts.confirmation();
             if(result.get()==ButtonType.OK){
                 pController.getrController().serializarListas();
                 System.exit(0);

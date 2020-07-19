@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FileReaders;
+package FileManagers;
 
 import java.util.LinkedList;
 import javafx.collections.ObservableList;

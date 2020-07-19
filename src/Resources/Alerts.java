@@ -13,7 +13,7 @@ import javafx.scene.control.ButtonType;
  *
  * @author PC
  */
-public class CloseAlert {
+public class Alerts {
     public static Optional<ButtonType> confirmation(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("CONFIRMATION ALERT");
