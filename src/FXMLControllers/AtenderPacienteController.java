@@ -5,8 +5,16 @@
  */
 package FXMLControllers;
 
+import ComponentesSistema.Paciente;
+import ComponentesSistema.Turno;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,8 +45,11 @@ public class AtenderPacienteController implements Initializable {
     private ComboBox<?> cmbPuesto;
 
     //TEXT FIELD - AREA
-    @FXML
+       @FXML
     private TextField txtNombrePaciente;
+
+    @FXML
+    private TextField txtApellidoPaciente;
 
     @FXML
     private TextField txtSintoma;
@@ -64,7 +75,9 @@ public class AtenderPacienteController implements Initializable {
      */
     @FXML
     void guardarAtencion(ActionEvent event) {
-
+        //agregar puesto a cola de puesto libre y actualizar :
+        guardarDatos();
+        
     }
 
     /**
@@ -108,6 +121,27 @@ public class AtenderPacienteController implements Initializable {
 
     public void setTxtGenero(TextField txtGenero) {
         this.txtGenero = txtGenero;
+    }
+
+    public TextField getTxtApellidoPaciente() {
+        return txtApellidoPaciente;
+    }
+
+    public void setTxtApellidoPaciente(TextField txtApellidoPaciente) {
+        this.txtApellidoPaciente = txtApellidoPaciente;
+    }
+    /**
+     * Method for save Receta & Diagnostico data.
+     */
+     public void guardarDatos(){
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("receta.diagnostico.txt",true))){
+            bw.write(txtNombrePaciente.getText()+txtApellidoPaciente.getText()+"|"+txtAreaReceta.getText()+
+                    "|"+txtAreaDiagnostico.getText()+"\n");
+        }catch (FileNotFoundException ex) {
+            Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

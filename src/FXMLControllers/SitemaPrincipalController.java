@@ -206,6 +206,7 @@ public class SitemaPrincipalController implements Initializable {
             pantallaAternderPaciente.getTxtGenero().setText(turnoSelect.getPaciente().getGenero());
             pantallaAternderPaciente.getTxtSintoma().setText(turnoSelect.getPaciente().getSintoma().getNombre());
             pantallaAternderPaciente.getTxtNombrePaciente().setText(turnoSelect.getPaciente().getNombre());
+             pantallaAternderPaciente.getTxtApellidoPaciente().setText(turnoSelect.getPaciente().getApellido());
   
 
             Scene scene1 = new Scene(root1);
