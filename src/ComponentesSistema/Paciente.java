@@ -5,8 +5,12 @@
  */
 package ComponentesSistema;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -78,16 +82,16 @@ public class Paciente implements Serializable{
     }
     
     public void guardarPaciente(){
-        ClassSerializer.guardarObjeto("pacientes.ser",this);
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("pacientes.txt"))){
+            bw.write(this.getNombre()+"|"+this.getApellido()+
+                    "|"+this.getGenero()+"|"+this.getEdad()+
+                    "|"+this.getSintoma().getNombre());
+        }catch (FileNotFoundException ex) {
+            Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
-    
-    
-
-
-
-public void AlmacenarDatos(){}
-
 
 }
 

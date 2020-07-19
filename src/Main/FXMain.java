@@ -6,6 +6,7 @@
 package Main;
 
 import FXMLControllers.RegistrosController;
+import FXMLControllers.SitemaPrincipalController;
 import Resources.CloseAlert;
 import java.io.IOException;
 import java.util.Optional;
@@ -38,32 +39,26 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) throws IOException {
         Stage anotherStage = new Stage();
         
-        loadFXML("/FXMLFiles/SistemaPrincipal.fxml",primaryStage);
-        loadFXML("/FXMLFiles/Registros.fxml",anotherStage);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXMLFiles/SistemaPrincipal.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene (root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        SitemaPrincipalController pController = loader.getController();
+        
+        System.out.println(pController);
+        
         primaryStage.setOnCloseRequest(e->{
-            Optional<ButtonType> result = CloseAlert.confirmation();
-            if(result.get()==ButtonType.OK){
-                RegistrosController registros = RegistrosController.getInstance();
-                registros.serializarListas();
-                System.exit(0);
-            }else{
-                e.consume();
-            }
-        });
+                Optional<ButtonType> result = CloseAlert.confirmation();
+                if(result.get()==ButtonType.OK){
+                    pController.getrController().serializarListas();
+                }else{
+                    e.consume();
+                }
+            });
     }
     
-    public void loadFXML(String source,Stage stage){
-        
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(source));
-            Scene scene = new Scene (root);
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(FXMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
     
     /**
      *

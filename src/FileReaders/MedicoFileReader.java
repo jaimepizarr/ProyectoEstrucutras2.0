@@ -7,9 +7,11 @@ package FileReaders;
 
 import ComponentesSistema.Medico;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -26,18 +28,19 @@ public class MedicoFileReader extends LectorArchivos {
      * @return ObsevableList
      */
     @Override
-    public ObservableList LeerArchivo(String s) {
-        ObservableList<Medico> lista = FXCollections.observableArrayList();
+    public LinkedList LeerArchivo(String s) {
+        LinkedList<Medico> lista = new LinkedList<>();
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("medicos.ser"));
-            Object nuevo = ois.readObject();
-            while(nuevo!= null){
-                if(nuevo instanceof Medico){
-                    lista.add((Medico)nuevo);
-                }
-                nuevo = ois.readObject();
+            File f = new File("puestos.ser");
+            if(f.exists()){
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream("medicos.ser"));      
+                Object nuevo = ois.readObject();
+                if(nuevo!=null) System.out.println("HEY");
+                lista = (LinkedList<Medico>) nuevo;
+                System.out.println(lista);
+                ois.close();
             }
-            ois.close();
+            
         }catch (ClassNotFoundException ex) {
             Logger.getLogger(Medico.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException e) {

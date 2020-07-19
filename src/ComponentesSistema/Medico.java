@@ -58,11 +58,7 @@ public class Medico implements Serializable{
         return nombre + " " + apellido +" - " +especialidad;
     }
     
-    public void guardarMedico(){
-        ClassSerializer.guardarObjeto("medicos.ser",this);
-    }
 
-    
     
     
 }

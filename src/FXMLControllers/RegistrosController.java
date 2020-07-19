@@ -41,17 +41,16 @@ import javafx.scene.layout.AnchorPane;
  */
 public class RegistrosController implements Initializable {
     
-    private static RegistrosController singleInstance;
     
     //Instancia Pagina Principal
-    SitemaPrincipalController principal;
+    private SitemaPrincipalController principal;
 
     //FUNCIONALIDAD COMBOBOX
     private ObservableList<String> Lgenero;
     private ObservableList<String> LEspecialidad;
-    private ObservableList<Sintoma> LSintomas;
-    private ObservableList<Medico> LMedico;  //AGREGAR INFORMACION
-    private ObservableList<Puesto> LPuesto; // AGREGAR INFORMACION
+    private LinkedList<Sintoma> LSintomas;
+    private LinkedList<Medico> LMedico;  //AGREGAR INFORMACION
+    private LinkedList<Puesto> LPuesto; // AGREGAR INFORMACION
     private LectorArchivos reader;
 
     
@@ -89,13 +88,14 @@ public class RegistrosController implements Initializable {
     @FXML
     private Button btnGuardarPuesto;
 
-    
-    public static RegistrosController getInstance(){
-        if(singleInstance == null){
-            singleInstance = new RegistrosController();
-        }
-        return singleInstance;
+    public SitemaPrincipalController getPrincipal() {
+        return principal;
     }
+
+    public void setPrincipal(SitemaPrincipalController principal) {
+        this.principal = principal;
+    }
+
     
     
     
@@ -119,7 +119,8 @@ public class RegistrosController implements Initializable {
         Medico medico = new Medico(txtNombreDoctor.getText(),
                         txtApellidoDoctor.getText(),
                         cmbEspecialidad.getValue());
-        cmbMedicoresponsable.getItems().add(medico);
+        LMedico.add(medico);
+        loadData();
         txtNombreDoctor.setText("");
         txtApellidoDoctor.setText("");
         cmbEspecialidad.setValue(null);
@@ -137,7 +138,7 @@ public class RegistrosController implements Initializable {
                 cmbSintomas.getValue()
         );
         p.guardarPaciente();
-        Turno t = GeneradorTurnos.generarTurnoConPaciente(p) ;
+        Turno t = GeneradorTurnos.generarTurnoConPaciente(p);
         
         txtNombrePaciente.setText("");
         txtApellidoPaciente.setText("");
@@ -145,6 +146,7 @@ public class RegistrosController implements Initializable {
         cmbSintomas.setValue(null);
         txtEdad.setText("");
         principal.getTurnos().offer(t);
+        System.out.println(principal.getTurnos());
         principal.asignarPuestoATurno();
     }
 
@@ -154,9 +156,9 @@ public class RegistrosController implements Initializable {
     @FXML
     void guardarPuesto(ActionEvent event) {
         Puesto puesto = new Puesto(txtNumeroPuesto.getText(),cmbMedicoresponsable.getValue());
-        puesto.guardarPuesto();
         principal.getPuestosLibres().add(puesto);
-        cmbPuesto.getItems().add(puesto);
+        LPuesto.add(puesto);
+        loadData();
         txtNumeroPuesto.setText("");
         cmbMedicoresponsable.setValue(null);
     }
@@ -207,7 +209,6 @@ public class RegistrosController implements Initializable {
      * Constructor, Inicializa la instancia de la ventana principal
      */
     public RegistrosController() {
-        principal = SitemaPrincipalController.getInstance();
         llenarListas();
         
     }
@@ -242,7 +243,9 @@ public class RegistrosController implements Initializable {
     
     
     public void serializarListas(){
+        System.out.println(LMedico);
         ClassSerializer.guardarObjeto("medicos.ser",LMedico);
+        System.out.println(LPuesto);
         ClassSerializer.guardarObjeto("puestos.ser", LPuesto);
     }
 

@@ -9,6 +9,7 @@ import ComponentesSistema.Medico;
 import ComponentesSistema.Sintoma;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.LinkedList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -23,8 +24,8 @@ public class SintomasFileReader extends LectorArchivos {
      * @return ObsevableList
      */
     @Override
-    public ObservableList LeerArchivo(String s) {
-        ObservableList<Sintoma> lista = FXCollections.observableArrayList();
+    public LinkedList LeerArchivo(String s) {
+        LinkedList<Sintoma> lista = new LinkedList<>();
         try ( BufferedReader br = new BufferedReader(new java.io.FileReader(s))) {
             String linea;
             while ((linea = br.readLine()) != null) {

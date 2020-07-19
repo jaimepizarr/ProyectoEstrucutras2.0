@@ -38,10 +38,6 @@ public class Puesto implements Serializable{
         this.medico = medico;
     }
 
-    public void guardarPuesto(){
-        ClassSerializer.guardarObjeto("puestos.ser",this);
-    }
-    
     @Override
     public String toString() {
         return numero;

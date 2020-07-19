@@ -3,21 +3,32 @@ package FXMLControllers;
 import ComponentesSistema.Puesto;
 import ComponentesSistema.Turno;
 import ComponentesSistema.TurnoPuesto;
+import FileReaders.PuestoFileReader;
+import Resources.CloseAlert;
 import TDA.CircularLinkedList;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Optional;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 import resources.MediaVideos;
 
 /**
@@ -44,7 +55,7 @@ public class SitemaPrincipalController implements Initializable{
     private LinkedList<TurnoPuesto> tableList;
     private Queue<Puesto> puestosLibres;
     private PriorityQueue<Turno> turnos;
-    
+    private RegistrosController rController;
     
     
     private static SitemaPrincipalController singleInstance;
@@ -53,10 +64,44 @@ public class SitemaPrincipalController implements Initializable{
      *Constructor: Initializes the lists
      */
     public SitemaPrincipalController() {
+        singleInstance = this;
         tableList = new LinkedList<>();
         puestosLibres = new LinkedList<>();
         turnos = new PriorityQueue<>((Turno t1,Turno t2)-> 
                 t1.getPaciente().getSintoma().getPrioridad()-t2.getPaciente().getSintoma().getPrioridad());
+        iniciarRegistroView();
+    }
+    
+    
+    /**
+     * Iniciar la vista registro y pasar como parametro este controler.
+     */
+    public void iniciarRegistroView(){
+        try {
+            Stage anotherStage = new Stage();
+            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/FXMLFiles/Registros.fxml"));
+            Parent root1 = loader1.load();
+            rController = loader1.getController();
+
+            Scene scene1 = new Scene (root1);
+            System.out.println(rController);
+            rController.setPrincipal(this);
+            
+            anotherStage.setScene(scene1);
+            anotherStage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SitemaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * Llenar los puestos vacíos al iniciar el programa
+     */
+    public void iniciarPuestosVacíos(){
+        PuestoFileReader reader = new PuestoFileReader();
+        LinkedList<Puesto> puestosExistentes = reader.LeerArchivo("puesto.ser");
+        puestosLibres.addAll(puestosExistentes);
     }
     
     /**
@@ -70,6 +115,16 @@ public class SitemaPrincipalController implements Initializable{
         return singleInstance;
     }
 
+    public RegistrosController getrController() {
+        return rController;
+    }
+
+    public void setrController(RegistrosController rController) {
+        this.rController = rController;
+    }
+    
+    
+    
   
 
     /**

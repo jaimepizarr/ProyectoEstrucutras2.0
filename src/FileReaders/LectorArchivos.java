@@ -5,6 +5,7 @@
  */
 package FileReaders;
 
+import java.util.LinkedList;
 import javafx.collections.ObservableList;
 
 /**
@@ -12,5 +13,5 @@ import javafx.collections.ObservableList;
  * @author PC
  */
 public abstract class LectorArchivos{
-    public abstract ObservableList LeerArchivo(String s);
+    public abstract LinkedList LeerArchivo(String s);
 }
