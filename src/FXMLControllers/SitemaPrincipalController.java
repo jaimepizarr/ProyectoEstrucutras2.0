@@ -199,11 +199,7 @@ public class SitemaPrincipalController implements Initializable {
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/FXMLFiles/AtenderPaciente.fxml"));
             Parent root1 = loader1.load();
             pantallaAternderPaciente = loader1.getController();
-            pantallaAternderPaciente.getTxtEdad().setText(String.valueOf(turnoSelect.getPaciente().getEdad()));
-            pantallaAternderPaciente.getTxtGenero().setText(turnoSelect.getPaciente().getGenero());
-            pantallaAternderPaciente.getTxtSintoma().setText(turnoSelect.getPaciente().getSintoma().getNombre());
-            pantallaAternderPaciente.getTxtNombrePaciente().setText(turnoSelect.getPaciente().getNombre());
-            pantallaAternderPaciente.getTxtApellidoPaciente().setText(turnoSelect.getPaciente().getApellido());
+            pantallaAternderPaciente.fillInData(turnoSelect.getPaciente());
             Scene scene1 = new Scene(root1);
             pantallaAternderPaciente.setPrincipal(this);
             anotherStage.setScene(scene1);

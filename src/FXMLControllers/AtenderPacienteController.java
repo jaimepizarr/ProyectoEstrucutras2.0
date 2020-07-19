@@ -161,5 +161,13 @@ public class AtenderPacienteController implements Initializable {
         txtAreaDiagnostico.setText("");
 
     }
+    
+    public void fillInData(Paciente patient){
+            this.getTxtEdad().setText(String.valueOf(patient.getEdad()));
+            this.getTxtGenero().setText(patient.getGenero());
+            this.getTxtSintoma().setText(patient.getSintoma().getNombre());
+            this.getTxtNombrePaciente().setText(patient.getNombre());
+            this .getTxtApellidoPaciente().setText(patient.getApellido());   
+    }
 
 }
