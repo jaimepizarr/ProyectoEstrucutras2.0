@@ -78,4 +78,38 @@ public class AtenderPacienteController implements Initializable {
         // TODO
     }
 
+    public TextField getTxtNombrePaciente() {
+        return txtNombrePaciente;
+    }
+
+    public void setTxtNombrePaciente(TextField txtNombrePaciente) {
+        this.txtNombrePaciente = txtNombrePaciente;
+    }
+
+    public TextField getTxtSintoma() {
+        return txtSintoma;
+    }
+
+    public void setTxtSintoma(TextField txtSintoma) {
+        this.txtSintoma = txtSintoma;
+    }
+
+    public TextField getTxtEdad() {
+        return txtEdad;
+    }
+
+    public void setTxtEdad(TextField txtEdad) {
+        this.txtEdad = txtEdad;
+    }
+
+    public TextField getTxtGenero() {
+        return txtGenero;
+    }
+
+    public void setTxtGenero(TextField txtGenero) {
+        this.txtGenero = txtGenero;
+    }
+    
+    
+
 }

@@ -16,3 +16,5 @@ d|d|MASCULINO|1|falta de aire
 t|t|FEMENINO|5|Opresion en el pecho
 s|a|MASCULINO|40|falta de aire
 j|a|MASCULINO|15|Opresion en el pecho
+J|a|MASCULINO|1|falta de aire
+Joseph|Avila|MASCULINO|16|falta de aire

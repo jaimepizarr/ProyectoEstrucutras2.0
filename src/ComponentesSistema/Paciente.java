@@ -92,6 +92,9 @@ public class Paciente implements Serializable{
             Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public String toStringSintoma(){
+        return ""+ sintoma;
+    }
 
 }
 
