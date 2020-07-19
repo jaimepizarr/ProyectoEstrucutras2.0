@@ -34,3 +34,6 @@ SofiaAsanza|Paracetamos|Enferma letal
 JosephA|f|f
 SofiaColombiana|F|f
 JosephAvila|Joseph|F
+Erickkol|aaaaaaa|dsdsdsadsa
+SofiaAsanza|sdsdsaasass|sasadsds
+holaas|dddddd|wwww

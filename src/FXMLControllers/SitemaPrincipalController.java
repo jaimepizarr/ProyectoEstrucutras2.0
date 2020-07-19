@@ -53,8 +53,7 @@ public class SitemaPrincipalController implements Initializable {
     public Queue<Puesto> puestosLibres;
     private PriorityQueue<Turno> turnos;
     private RegistrosController rController;
-    private AtenderPacienteController pantallaAternderPaciente ;
-   
+    private AtenderPacienteController pantallaAternderPaciente;
 
     private static SitemaPrincipalController singleInstance;
 
@@ -135,8 +134,6 @@ public class SitemaPrincipalController implements Initializable {
         this.tableList = tableList;
     }
 
-    
-
     public Queue<Puesto> getPuestosLibres() {
         return puestosLibres;
     }
@@ -159,8 +156,7 @@ public class SitemaPrincipalController implements Initializable {
         colTurno.setCellValueFactory(new PropertyValueFactory("turno"));
         colPuesto.setCellValueFactory(new PropertyValueFactory("puesto"));
 
-        //initMediaPlayer(media, urlsVideos);
-
+        initMediaPlayer(media, urlsVideos);
     }
 
     CircularLinkedList<String> urls = MediaVideos.readFileOfVideo();
@@ -192,13 +188,10 @@ public class SitemaPrincipalController implements Initializable {
 
     @FXML
     private void mostrarPantalla(MouseEvent event) {
-        Turno turnoSelect =tbTurnoPuesto.getSelectionModel().getSelectedItem().getTurno();
-        Puesto puestoSelect =tbTurnoPuesto.getSelectionModel().getSelectedItem().getPuesto();
-       TurnoPuesto deleteElement= SitemaPrincipalController.getInstance().tbTurnoPuesto.getSelectionModel().getSelectedItem();
-       
-     
-       
-         try {
+        Turno turnoSelect = tbTurnoPuesto.getSelectionModel().getSelectedItem().getTurno();
+        Puesto puestoSelect = tbTurnoPuesto.getSelectionModel().getSelectedItem().getPuesto();
+        TurnoPuesto deleteElement = SitemaPrincipalController.getInstance().tbTurnoPuesto.getSelectionModel().getSelectedItem();
+        try {
             Stage anotherStage = new Stage();
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/FXMLFiles/AtenderPaciente.fxml"));
             Parent root1 = loader1.load();
@@ -210,23 +203,11 @@ public class SitemaPrincipalController implements Initializable {
             pantallaAternderPaciente.getTxtApellidoPaciente().setText(turnoSelect.getPaciente().getApellido());
             Scene scene1 = new Scene(root1);
             pantallaAternderPaciente.setPrincipal(this);
-         
-
-
             anotherStage.setScene(scene1);
             anotherStage.show();
-            
-            pantallaAternderPaciente.getTxtAreaReceta().setText("");
-            pantallaAternderPaciente.getTxtAreaDiagnostico().setText("");
-         
-            
         } catch (IOException ex) {
             Logger.getLogger(SitemaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-       
-        
-    }}
+        }
+    }
 
-    
-  
-    
- } 
+}

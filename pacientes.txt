@@ -33,3 +33,6 @@ Sofia|Colombiana|MASCULINO|45|Opresion en el pecho
 f|f|MASCULINO|10|Desmayos
 f|f|MASCULINO|12|Hinchazon de lengua o boca
 Joseph|Avila|MASCULINO|10|falta de aire
+Sofia|Asanza|MASCULINO|20|Resfrio
+Erick|kol|MASCULINO|5|Resfrio
+hola|as|MASCULINO|20|Tos

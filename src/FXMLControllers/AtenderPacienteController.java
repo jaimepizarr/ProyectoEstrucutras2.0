@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -30,7 +31,7 @@ import javafx.scene.control.TextField;
  * @author USUARIO
  */
 public class AtenderPacienteController implements Initializable {
-    
+
     private SitemaPrincipalController principal;
 
     public SitemaPrincipalController getPrincipal() {
@@ -40,13 +41,13 @@ public class AtenderPacienteController implements Initializable {
     public void setPrincipal(SitemaPrincipalController principal) {
         this.principal = principal;
     }
-    
+
     //COMBO BOX
     @FXML
     private ComboBox<?> cmbPuesto;
 
     //TEXT FIELD - AREA
-       @FXML
+    @FXML
     private TextField txtNombrePaciente;
 
     @FXML
@@ -76,36 +77,13 @@ public class AtenderPacienteController implements Initializable {
      */
     @FXML
     void guardarAtencion(ActionEvent event) {
-        //agregar puesto a cola de puesto libre y actualizar :
-        
-
-          
-            
-        
-       
-        TurnoPuesto deleteElement= SitemaPrincipalController.getInstance().tbTurnoPuesto.getSelectionModel().getSelectedItem();
+        TurnoPuesto deleteElement = SitemaPrincipalController.getInstance().tbTurnoPuesto.getSelectionModel().getSelectedItem();
         SitemaPrincipalController.getInstance().tbTurnoPuesto.getItems().remove(deleteElement);
         SitemaPrincipalController.getInstance().tbTurnoPuesto.refresh();
         SitemaPrincipalController.getInstance().puestosLibres.offer(deleteElement.getPuesto());
-         guardarDatos();
+        guardarDatos();
+        vaciarInputsAtenderPaciente();
         
-        
-    }
-
-    public TextArea getTxtAreaReceta() {
-        return txtAreaReceta;
-    }
-
-    public void setTxtAreaReceta(TextArea txtAreaReceta) {
-        this.txtAreaReceta = txtAreaReceta;
-    }
-
-    public TextArea getTxtAreaDiagnostico() {
-        return txtAreaDiagnostico;
-    }
-
-    public void setTxtAreaDiagnostico(TextArea txtAreaDiagnostico) {
-        this.txtAreaDiagnostico = txtAreaDiagnostico;
     }
 
     /**
@@ -158,20 +136,30 @@ public class AtenderPacienteController implements Initializable {
     public void setTxtApellidoPaciente(TextField txtApellidoPaciente) {
         this.txtApellidoPaciente = txtApellidoPaciente;
     }
+
     /**
      * Method for save Receta & Diagnostico data.
      */
-     public void guardarDatos(){
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter("receta.diagnostico.txt",true))){
-            bw.write(txtNombrePaciente.getText()+txtApellidoPaciente.getText()+"|"+txtAreaReceta.getText()+
-                    "|"+txtAreaDiagnostico.getText()+"\n");
-        }catch (FileNotFoundException ex) {
+    public void guardarDatos() {
+        try ( BufferedWriter bw = new BufferedWriter(new FileWriter("receta.diagnostico.txt", true))) {
+            bw.write(txtNombrePaciente.getText() + txtApellidoPaciente.getText() + "|" + txtAreaReceta.getText()
+                    + "|" + txtAreaDiagnostico.getText() + "\n");
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
+    public void vaciarInputsAtenderPaciente() {
+        txtNombrePaciente.setText("");
+        txtApellidoPaciente.setText("");
+        txtGenero.setText("");
+        txtEdad.setText("");
+        txtSintoma.setText("");
+        txtAreaReceta.setText("");
+        txtAreaDiagnostico.setText("");
+
+    }
 
 }
