@@ -27,6 +27,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -40,10 +41,6 @@ import resources.MediaVideos;
 public class SitemaPrincipalController implements Initializable {
 
     @FXML
-    private ResourceBundle resources;
-    @FXML
-    private URL location;
-    @FXML
     private MediaView media;
     @FXML
     private TableView<TurnoPuesto> tbTurnoPuesto;
@@ -56,6 +53,8 @@ public class SitemaPrincipalController implements Initializable {
     private Queue<Puesto> puestosLibres;
     private PriorityQueue<Turno> turnos;
     private RegistrosController rController;
+    private AtenderPacienteController pantallaAternderPaciente ;
+   
 
     private static SitemaPrincipalController singleInstance;
 
@@ -154,7 +153,6 @@ public class SitemaPrincipalController implements Initializable {
         this.turnos = turnos;
     }
 
-    @FXML
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -192,4 +190,35 @@ public class SitemaPrincipalController implements Initializable {
         this.rController = rController;
     }
 
-}
+    @FXML
+    private void mostrarPantalla(MouseEvent event) {
+        Turno turnoSelect =tbTurnoPuesto.getSelectionModel().getSelectedItem().getTurno();
+        Puesto puestoSelect =tbTurnoPuesto.getSelectionModel().getSelectedItem().getPuesto();
+
+     
+       
+         try {
+            Stage anotherStage = new Stage();
+            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/FXMLFiles/AtenderPaciente.fxml"));
+            Parent root1 = loader1.load();
+            pantallaAternderPaciente = loader1.getController();
+            pantallaAternderPaciente.getTxtEdad().setText(String.valueOf(turnoSelect.getPaciente().getEdad()));
+            pantallaAternderPaciente.getTxtGenero().setText(turnoSelect.getPaciente().getGenero());
+
+            Scene scene1 = new Scene(root1);
+            pantallaAternderPaciente.setPrincipal(this);
+            
+
+            anotherStage.setScene(scene1);
+            anotherStage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(SitemaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+       
+        
+    }}
+
+    
+  
+    
+ } 

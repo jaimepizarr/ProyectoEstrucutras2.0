@@ -21,7 +21,17 @@ import javafx.scene.control.TextField;
  * @author USUARIO
  */
 public class AtenderPacienteController implements Initializable {
+    
+    private SitemaPrincipalController principal;
 
+    public SitemaPrincipalController getPrincipal() {
+        return principal;
+    }
+
+    public void setPrincipal(SitemaPrincipalController principal) {
+        this.principal = principal;
+    }
+    
     //COMBO BOX
     @FXML
     private ComboBox<?> cmbPuesto;

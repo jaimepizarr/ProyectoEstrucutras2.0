@@ -6,3 +6,13 @@ Claudia|Asanza|FEMENINO|20|Dolor de cabeza
 Nicole|Velez|FEMENINO|25|falta de aire
 Jorge|Guzman|MASCULINO|34|Opresion en el pecho
 Ronnie|Arteaga|MASCULINO|29|Mareo
+Joseph |Avila|MASCULINO|20|falta de aire
+Joseph|Avila|MASCULINO|18|falta de aire
+Joseph|Avila|MASCULINO|20|falta de aire
+j|a|MASCULINO|2|falta de aire
+j|a|FEMENINO|2|falta de aire
+r|f|MASCULINO|1|falta de aire
+d|d|MASCULINO|1|falta de aire
+t|t|FEMENINO|5|Opresion en el pecho
+s|a|MASCULINO|40|falta de aire
+j|a|MASCULINO|15|Opresion en el pecho
