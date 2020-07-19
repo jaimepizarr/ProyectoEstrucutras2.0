@@ -5,16 +5,18 @@
  */
 package FXMLControllers;
 
-import ComponentesSistema.ClassSerializer;
+import FileManagers.PuestoFileReader;
+import FileManagers.MedicoFileReader;
+import FileManagers.LectorArchivos;
+import FileManagers.ClassSerializer;
 import ComponentesSistema.GeneradorTurnos;
 import ComponentesSistema.Medico;
 import ComponentesSistema.Paciente;
 import ComponentesSistema.Puesto;
 import ComponentesSistema.Sintoma;
 import ComponentesSistema.Turno;
-import FileReaders.*;
-import FileReaders.SintomasFileReader;
-import Resources.CloseAlert;
+import FileManagers.SintomasFileReader;
+import Resources.Alerts;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -204,7 +206,7 @@ public class RegistrosController implements Initializable {
     
     @FXML
     void eliminarPuesto(){
-        Optional<ButtonType> result = CloseAlert.confirmPuestoDelete();
+        Optional<ButtonType> result = Alerts.confirmPuestoDelete();
         if(result.get()==ButtonType.OK){
             Puesto puesto = cmbPuesto.getValue();
             Medico med = puesto.getMedico();

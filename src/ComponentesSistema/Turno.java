@@ -5,6 +5,7 @@
  */
 package ComponentesSistema;
 
+import FileManagers.ClassSerializer;
 import java.io.Serializable;
 import java.util.Map;
 
