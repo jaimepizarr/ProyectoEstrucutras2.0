@@ -18,3 +18,7 @@ s|a|MASCULINO|40|falta de aire
 j|a|MASCULINO|15|Opresion en el pecho
 J|a|MASCULINO|1|falta de aire
 Joseph|Avila|MASCULINO|16|falta de aire
+f|f|MASCULINO|5|falta de aire
+Sofia|Asanza|FEMENINO|18|Resfrio
+j|j|FEMENINO|5|falta de aire
+Sofia|Asanza|FEMENINO|20|Resfrio

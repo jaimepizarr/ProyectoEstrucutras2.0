@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/USUARIO/Desktop/TERCER%20SEMESTRE/NetBeansProjects/Estructura%20de%20Datos/PRUEBO/ProyectoEstrucutras2.0/src/ComponentesSistema/Paciente.java</file>
+            <file>file:/C:/Users/USUARIO/Desktop/TERCER%20SEMESTRE/NetBeansProjects/Estructura%20de%20Datos/PRUEBO/ProyectoEstrucutras2.0/src/FXMLControllers/RegistrosController.java</file>
+            <file>file:/C:/Users/USUARIO/Desktop/TERCER%20SEMESTRE/NetBeansProjects/Estructura%20de%20Datos/PRUEBO/ProyectoEstrucutras2.0/src/FileReaders/SintomasFileReader.java</file>
+            <file>file:/C:/Users/USUARIO/Desktop/TERCER%20SEMESTRE/NetBeansProjects/Estructura%20de%20Datos/PRUEBO/ProyectoEstrucutras2.0/src/FXMLControllers/AtenderPacienteController.java</file>
+            <file>file:/C:/Users/USUARIO/Desktop/TERCER%20SEMESTRE/NetBeansProjects/Estructura%20de%20Datos/PRUEBO/ProyectoEstrucutras2.0/src/FXMLFiles/AtenderPaciente.fxml</file>
+            <file>file:/C:/Users/USUARIO/Desktop/TERCER%20SEMESTRE/NetBeansProjects/Estructura%20de%20Datos/PRUEBO/ProyectoEstrucutras2.0/src/FXMLControllers/SitemaPrincipalController.java</file>
+        </group>
     </open-files>
 </project-private>
