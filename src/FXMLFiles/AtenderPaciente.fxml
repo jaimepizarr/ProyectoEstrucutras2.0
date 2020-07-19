@@ -5,9 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -20,20 +17,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="1113.0" style="-fx-background-color: DCEDFB;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLControllers.AtenderPacienteController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="894.0" style="-fx-background-color: DCEDFB;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLControllers.AtenderPacienteController">
     <stylesheets>
         <URL value="@atencionpaciente.css" />
     </stylesheets>
    <children>
-      <ImageView fitHeight="679.0" fitWidth="662.0" layoutX="238.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/atention.png" />
-         </image>
-      </ImageView>
-      <GridPane alignment="CENTER_LEFT" layoutX="28.0" layoutY="93.0" prefHeight="132.0" prefWidth="1060.0">
+      <GridPane alignment="CENTER_LEFT" layoutX="28.0" layoutY="93.0" prefHeight="132.0" prefWidth="863.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="527.6666870117188" minWidth="10.0" prefWidth="527.6666870117188" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="548.3333129882812" minWidth="10.0" prefWidth="532.3333129882812" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="527.6666870117188" minWidth="10.0" prefWidth="422.5550537109375" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="637.9449462890625" minWidth="10.0" prefWidth="637.9449462890625" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="51.333343505859375" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
@@ -100,7 +92,7 @@
                   <Insets top="15.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" GridPane.columnIndex="1">
+            <HBox alignment="CENTER" prefHeight="47.0" prefWidth="574.0" spacing="50.0" GridPane.columnIndex="1">
                <children>
                   <Label text="Edad: ">
                      <HBox.margin>
@@ -110,7 +102,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <TextField id="txtEdad" fx:id="txtEdad" disable="true" prefWidth="250.0">
+                  <TextField id="txtEdad" fx:id="txtEdad" disable="true" prefHeight="28.0" prefWidth="107.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -120,7 +112,7 @@
                   <Insets top="15.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="638.0" spacing="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <Label text="Género:  ">
                      <HBox.margin>
@@ -130,7 +122,7 @@
                         <Font name="Sylfaen" size="20.0" />
                      </font>
                   </Label>
-                  <TextField id="txtGenero" fx:id="txtGenero" disable="true" prefWidth="250.0">
+                  <TextField id="txtGenero" fx:id="txtGenero" disable="true" prefHeight="28.0" prefWidth="145.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -142,41 +134,32 @@
             </HBox>
          </children>
       </GridPane>
-      <MenuBar layoutX="-1.0" prefHeight="30.0" prefWidth="1119.0" style="-fx-background-color: #63CBEC#63CBEC;">
-        <menus>
-          <Menu mnemonicParsing="false" text="Ventana Turnos">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <TextArea id="txtAreaReceta" fx:id="txtAreaReceta" layoutX="156.0" layoutY="245.0" prefHeight="151.0" prefWidth="949.0" style="-fx-background-color: #FFFFFF;" />
-      <TextArea id="txtAreaDiagnostico" fx:id="txtAreaDiagnostico" layoutX="158.0" layoutY="425.0" prefHeight="149.0" prefWidth="949.0" style="-fx-background-color: #FFFFFF;" />
+      <TextArea id="txtAreaReceta" fx:id="txtAreaReceta" layoutX="156.0" layoutY="245.0" prefHeight="120.0" prefWidth="721.0" style="-fx-background-color: #FFFFFF;" />
+      <TextArea id="txtAreaDiagnostico" fx:id="txtAreaDiagnostico" layoutX="158.0" layoutY="378.0" prefHeight="120.0" prefWidth="726.0" style="-fx-background-color: #FFFFFF;" />
       <Text fill="#05212c" layoutX="46.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receta:">
          <font>
             <Font name="Times New Roman" size="26.0" />
          </font>
       </Text>
-      <Text fill="#00161e" layoutX="14.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diagnóstico: ">
+      <Text fill="#00161e" layoutX="18.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diagnóstico: ">
          <font>
             <Font name="Times New Roman" size="25.0" />
          </font>
       </Text>
-      <Button id="btnGuardar" fx:id="btnGuardar" layoutX="482.0" layoutY="598.0" mnemonicParsing="false" onAction="#guardarAtencion" prefHeight="41.0" prefWidth="172.0" style="-fx-background-color: #E6E6FA; -fx-border-color: D0BEA7;" stylesheets="@atencionpaciente.css" text="Guardar">
+      <Button id="btnGuardar" fx:id="btnGuardar" layoutX="380.0" layoutY="513.0" mnemonicParsing="false" onAction="#guardarAtencion" prefHeight="41.0" prefWidth="172.0" style="-fx-background-color: #E6E6FA; -fx-border-color: D0BEA7;" stylesheets="@atencionpaciente.css" text="Guardar">
          <font>
             <Font name="Serif Regular" size="23.0" />
          </font></Button>
-      <Label layoutY="29.0" prefHeight="71.0" prefWidth="1116.0" style="-fx-background-color: #E6E6FA;" textAlignment="CENTER">
+      <Label layoutY="-2.0" prefHeight="71.0" prefWidth="895.0" style="-fx-background-color: #E6E6FA;" textAlignment="CENTER">
          <font>
             <Font name="Century" size="43.0" />
          </font></Label>
-      <Text layoutX="370.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atender Paciente">
+      <Text layoutX="286.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atender Paciente">
          <font>
             <Font name="Century" size="43.0" />
          </font>
       </Text>
-      <ImageView fitHeight="62.0" fitWidth="260.0" layoutX="829.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="62.0" fitWidth="260.0" layoutX="613.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/logomspnew.png" />
          </image>
