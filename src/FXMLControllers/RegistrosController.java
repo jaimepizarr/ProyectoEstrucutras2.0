@@ -14,6 +14,7 @@ import ComponentesSistema.Sintoma;
 import ComponentesSistema.Turno;
 import FileReaders.*;
 import FileReaders.SintomasFileReader;
+import Resources.CloseAlert;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -22,6 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,7 +31,9 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -137,7 +141,7 @@ public class RegistrosController implements Initializable {
                 txtApellidoDoctor.getText(),
                 cmbEspecialidad.getValue());
         LMedico.add(medico);
-        cmbMedicoresponsable.getItems().addAll(LMedico);
+        cmbMedicoresponsable.getItems().setAll(LMedico);
         txtNombreDoctor.setText("");
         txtApellidoDoctor.setText("");
         cmbEspecialidad.setValue(null);
@@ -196,6 +200,21 @@ public class RegistrosController implements Initializable {
             }
         }
         cmbMedicoresponsable.getItems().setAll(LMedico);
+    }
+    
+    @FXML
+    void eliminarPuesto(){
+        Optional<ButtonType> result = CloseAlert.confirmPuestoDelete();
+        if(result.get()==ButtonType.OK){
+            Puesto puesto = cmbPuesto.getValue();
+            Medico med = puesto.getMedico();
+            med.setPuesto(null);
+            LPuesto.remove(puesto);
+            LMedico.add(med);
+            loadData();
+            
+        }
+        
     }
 
     //FUNCIONALIDAD MENU REGISTROS.

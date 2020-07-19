@@ -56,7 +56,9 @@
          <children>
             <ComboBox fx:id="cmbPuesto" layoutX="80.0" layoutY="98.0" prefHeight="27.0" prefWidth="358.0" promptText="Elegir puesto a eliminar" />
             <Text layoutX="218.0" layoutY="41.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar Puesto" />
-         </children></AnchorPane>
+            <Button id="ButtonEliminarPuesto" fx:id="eliminarPuesto" layoutX="217.0" layoutY="167.0" mnemonicParsing="false" onAction="#eliminarPuesto" prefHeight="34.0" prefWidth="84.0" stylesheets="@../css/button.css" text="Eliminar" textFill="WHITE" />
+         </children>
+      </AnchorPane>
       <AnchorPane id="hCrearPuesto" fx:id="hCrearPuesto" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
          <children>
             <Text layoutX="216.0" layoutY="37.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Puesto" />
@@ -64,7 +66,7 @@
             <ComboBox fx:id="cmbMedicoresponsable" layoutX="73.0" layoutY="135.0" prefHeight="27.0" prefWidth="361.0" promptText="Medico Responsable" />
             <Button id="ButtonCrearPuesto" fx:id="btnGuardarPuesto" layoutX="211.0" layoutY="206.0" mnemonicParsing="false" onAction="#guardarPuesto" onMouseClicked="#handleButtonAction" prefHeight="42.0" prefWidth="95.0" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE" />
          </children></AnchorPane>
-      <AnchorPane id="hRegistroDoctores" fx:id="hRegistroDoctores" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0">
+      <AnchorPane id="hRegistroDoctores" fx:id="hRegistroDoctores" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
          <children>
             <Text layoutX="207.0" layoutY="32.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de doctores" />
             <TextField id="txtNombreDoctor" fx:id="txtNombreDoctor" layoutX="109.0" layoutY="69.0" prefHeight="27.0" prefWidth="324.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
@@ -73,7 +75,7 @@
             <Button id="ButtonCrearPuesto" fx:id="btnGuardarDoctor" layoutX="214.0" layoutY="235.0" mnemonicParsing="false" onAction="#guardarDoctor" onMouseClicked="#handleButtonAction" prefHeight="42.0" prefWidth="95.0" stylesheets="@../css/button.css" text="Guardar" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <AnchorPane id="hRegistroPaciente" fx:id="hRegistroPaciente" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0" visible="false">
+      <AnchorPane id="hRegistroPaciente" fx:id="hRegistroPaciente" layoutX="581.0" layoutY="337.0" prefHeight="360.0" prefWidth="517.0">
          <children>
             <Text layoutX="199.0" layoutY="35.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Paciente" wrappingWidth="114.90386429949649" />
             <TextField id="txtNombrePaciente" fx:id="txtNombrePaciente" layoutX="101.0" layoutY="61.0" prefHeight="27.0" prefWidth="316.0" promptText="Nombre" stylesheets="@../css/textfield.css" />
