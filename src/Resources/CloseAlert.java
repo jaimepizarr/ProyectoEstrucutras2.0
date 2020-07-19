@@ -19,5 +19,16 @@ public class CloseAlert {
         alert.setTitle("CONFIRMATION ALERT");
         alert.setHeaderText("CERRAR EL PROGRAMA");
         alert.setContentText("SI DA CLIC EN ACEPTAR, TERMINARÁ EL PROGRAMA \n ¿ESTÁ SEGURO QUE DESEA CONTINUAR?");
-        return alert.showAndWait();    }
+        return alert.showAndWait();    
+    }
+    
+    public static Optional<ButtonType> confirmPuestoDelete(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("CONFIRMATION ALERT");
+        alert.setHeaderText("Eliminar Puesto");
+        alert.setContentText("SI DA CLIC EN ACEPTAR, "
+                + "EL MEDICO DEL PUESTO QUEDARÁ LIBRE Y SIN PUESTO, EL PUESTO QUEDARÁ ELIMINADO.");
+        return alert.showAndWait();    
+    }
+    
 }
