@@ -153,11 +153,7 @@
          <font>
             <Font name="Serif Regular" size="23.0" />
          </font></Button>
-      <Label layoutY="-2.0" prefHeight="71.0" prefWidth="895.0" style="-fx-background-color: #E6E6FA;" textAlignment="CENTER">
-         <font>
-            <Font name="Century" size="43.0" />
-         </font></Label>
-      <Text layoutX="286.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atender Paciente">
+      <Text layoutX="339.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atender Paciente">
          <font>
             <Font name="Century" size="43.0" />
          </font>
@@ -165,6 +161,11 @@
       <ImageView fitHeight="62.0" fitWidth="260.0" layoutX="613.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/logomspnew.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="86.0" fitWidth="108.0" layoutX="214.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/paciente.png" />
          </image>
       </ImageView>
    </children>
