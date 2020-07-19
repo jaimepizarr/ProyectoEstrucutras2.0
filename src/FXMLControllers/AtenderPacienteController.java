@@ -7,6 +7,7 @@ package FXMLControllers;
 
 import ComponentesSistema.Paciente;
 import ComponentesSistema.Turno;
+import ComponentesSistema.TurnoPuesto;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -76,8 +77,35 @@ public class AtenderPacienteController implements Initializable {
     @FXML
     void guardarAtencion(ActionEvent event) {
         //agregar puesto a cola de puesto libre y actualizar :
-        guardarDatos();
         
+
+          
+            
+        
+       
+        TurnoPuesto deleteElement= SitemaPrincipalController.getInstance().tbTurnoPuesto.getSelectionModel().getSelectedItem();
+        SitemaPrincipalController.getInstance().tbTurnoPuesto.getItems().remove(deleteElement);
+        SitemaPrincipalController.getInstance().tbTurnoPuesto.refresh();
+        SitemaPrincipalController.getInstance().puestosLibres.offer(deleteElement.getPuesto());
+         guardarDatos();
+        
+        
+    }
+
+    public TextArea getTxtAreaReceta() {
+        return txtAreaReceta;
+    }
+
+    public void setTxtAreaReceta(TextArea txtAreaReceta) {
+        this.txtAreaReceta = txtAreaReceta;
+    }
+
+    public TextArea getTxtAreaDiagnostico() {
+        return txtAreaDiagnostico;
+    }
+
+    public void setTxtAreaDiagnostico(TextArea txtAreaDiagnostico) {
+        this.txtAreaDiagnostico = txtAreaDiagnostico;
     }
 
     /**

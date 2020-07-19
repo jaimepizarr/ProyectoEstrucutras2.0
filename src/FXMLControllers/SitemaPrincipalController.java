@@ -43,14 +43,14 @@ public class SitemaPrincipalController implements Initializable {
     @FXML
     private MediaView media;
     @FXML
-    private TableView<TurnoPuesto> tbTurnoPuesto;
+    public TableView<TurnoPuesto> tbTurnoPuesto;
     @FXML
     private TableColumn<String, TurnoPuesto> colTurno;
     @FXML
     private TableColumn<Integer, TurnoPuesto> colPuesto;
 
     private ObservableList<TurnoPuesto> tableList;
-    private Queue<Puesto> puestosLibres;
+    public Queue<Puesto> puestosLibres;
     private PriorityQueue<Turno> turnos;
     private RegistrosController rController;
     private AtenderPacienteController pantallaAternderPaciente ;
@@ -194,7 +194,8 @@ public class SitemaPrincipalController implements Initializable {
     private void mostrarPantalla(MouseEvent event) {
         Turno turnoSelect =tbTurnoPuesto.getSelectionModel().getSelectedItem().getTurno();
         Puesto puestoSelect =tbTurnoPuesto.getSelectionModel().getSelectedItem().getPuesto();
-
+       TurnoPuesto deleteElement= SitemaPrincipalController.getInstance().tbTurnoPuesto.getSelectionModel().getSelectedItem();
+       
      
        
          try {
@@ -206,16 +207,19 @@ public class SitemaPrincipalController implements Initializable {
             pantallaAternderPaciente.getTxtGenero().setText(turnoSelect.getPaciente().getGenero());
             pantallaAternderPaciente.getTxtSintoma().setText(turnoSelect.getPaciente().getSintoma().getNombre());
             pantallaAternderPaciente.getTxtNombrePaciente().setText(turnoSelect.getPaciente().getNombre());
-             pantallaAternderPaciente.getTxtApellidoPaciente().setText(turnoSelect.getPaciente().getApellido());
-  
-
+            pantallaAternderPaciente.getTxtApellidoPaciente().setText(turnoSelect.getPaciente().getApellido());
             Scene scene1 = new Scene(root1);
             pantallaAternderPaciente.setPrincipal(this);
-            
+         
+
 
             anotherStage.setScene(scene1);
             anotherStage.show();
-
+            
+            pantallaAternderPaciente.getTxtAreaReceta().setText("");
+            pantallaAternderPaciente.getTxtAreaDiagnostico().setText("");
+         
+            
         } catch (IOException ex) {
             Logger.getLogger(SitemaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
        

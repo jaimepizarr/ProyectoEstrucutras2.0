@@ -22,3 +22,14 @@ f|f|MASCULINO|5|falta de aire
 Sofia|Asanza|FEMENINO|18|Resfrio
 j|j|FEMENINO|5|falta de aire
 Sofia|Asanza|FEMENINO|20|Resfrio
+J|A|MASCULINO|24|falta de aire
+J|A|MASCULINO|20|falta de aire
+F|F|MASCULINO|2|Resfrio
+F|F|MASCULINO|12|Hinchazon de lengua o boca
+J|J|MASCULINO|4|falta de aire
+Sofia|Asanza|FEMENINO|20|falta de aire
+Joseph|A|MASCULINO|3|falta de aire
+Sofia|Colombiana|MASCULINO|45|Opresion en el pecho
+f|f|MASCULINO|10|Desmayos
+f|f|MASCULINO|12|Hinchazon de lengua o boca
+Joseph|Avila|MASCULINO|10|falta de aire
