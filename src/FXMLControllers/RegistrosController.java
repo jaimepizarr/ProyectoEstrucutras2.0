@@ -184,6 +184,7 @@ public class RegistrosController implements Initializable {
         Puesto puesto = new Puesto(txtNumeroPuesto.getText(), cmbMedicoresponsable.getValue());
         cmbMedicoresponsable.getValue().setPuesto(puesto);
         principal.getPuestosLibres().add(puesto);
+        principal.asignarPuestoATurno();
         LPuesto.add(puesto);
         loadData();
         txtNumeroPuesto.setText("");
