@@ -46,18 +46,16 @@ public class FXMain extends Application {
         primaryStage.show();
         SitemaPrincipalController pController = loader.getController();
         
-        System.out.println(pController);
         
         primaryStage.setOnCloseRequest(e->{
-                Optional<ButtonType> result = CloseAlert.confirmation();
-                if(result.get()==ButtonType.OK){
-                    pController.getrController().serializarListas();
-                    System.exit(0);
-
-                }else{
-                    e.consume();
-                }
-            });
+            Optional<ButtonType> result = CloseAlert.confirmation();
+            if(result.get()==ButtonType.OK){
+                pController.getrController().serializarListas();
+                System.exit(0);
+            }else{
+                e.consume();
+            }
+        });
     }
     
     

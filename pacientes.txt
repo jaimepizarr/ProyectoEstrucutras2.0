@@ -1,3 +1,6 @@
 Jose|Perez|MASCULINO|35|Fiebre
 Roberto|Velastegui|MASCULINO|45|Fiebre
 Alexandra|Pizarro|FEMENINO|20|Enrochamiento de piel
+Jaime|Pizarro|MASCULINO|19|Vomitos reiterados
+Claudia|Asanza|FEMENINO|20|Dolor de cabeza
+Nicole|Velez|FEMENINO|25|falta de aire

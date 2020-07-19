@@ -16,6 +16,8 @@ import java.util.Queue;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -50,7 +52,7 @@ public class SitemaPrincipalController implements Initializable {
     @FXML
     private TableColumn<Integer, TurnoPuesto> colPuesto;
 
-    private LinkedList<TurnoPuesto> tableList;
+    private ObservableList<TurnoPuesto> tableList;
     private Queue<Puesto> puestosLibres;
     private PriorityQueue<Turno> turnos;
     private RegistrosController rController;
@@ -62,7 +64,7 @@ public class SitemaPrincipalController implements Initializable {
      */
     public SitemaPrincipalController() {
         singleInstance = this;
-        tableList = new LinkedList<>();
+        tableList = FXCollections.observableArrayList();
         puestosLibres = new LinkedList<>();
         turnos = new PriorityQueue<>((Turno t1, Turno t2)
                 -> t1.getPaciente().getSintoma().getPrioridad() - t2.getPaciente().getSintoma().getPrioridad());
@@ -117,27 +119,24 @@ public class SitemaPrincipalController implements Initializable {
      * Method for assigning places to a turn.
      */
     public void asignarPuestoATurno() {
-        System.out.println("HOLA");
-        System.out.println(puestosLibres);
-        System.out.println(turnos);
-
         if (puestosLibres.size() > 0 && !turnos.isEmpty()) {
-            System.out.println("HOLA");
             Turno t = turnos.poll();
             Puesto p = puestosLibres.poll();
             TurnoPuesto tp = new TurnoPuesto(t, p);
-            tableList.addFirst(tp);
-            tbTurnoPuesto.getItems().setAll(tableList);
+            tableList.add(tp);
+            tbTurnoPuesto.refresh();
         }
     }
 
-    public LinkedList<TurnoPuesto> getTableList() {
+    public ObservableList<TurnoPuesto> getTableList() {
         return tableList;
     }
 
-    public void setTableList(LinkedList<TurnoPuesto> tableList) {
+    public void setTableList(ObservableList<TurnoPuesto> tableList) {
         this.tableList = tableList;
     }
+
+    
 
     public Queue<Puesto> getPuestosLibres() {
         return puestosLibres;
@@ -162,7 +161,7 @@ public class SitemaPrincipalController implements Initializable {
         colTurno.setCellValueFactory(new PropertyValueFactory("turno"));
         colPuesto.setCellValueFactory(new PropertyValueFactory("puesto"));
 
-        initMediaPlayer(media, urlsVideos);
+        //initMediaPlayer(media, urlsVideos);
 
     }
 

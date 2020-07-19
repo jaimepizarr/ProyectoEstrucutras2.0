@@ -93,6 +93,29 @@ public class RegistrosController implements Initializable {
     public void setPrincipal(SitemaPrincipalController principal) {
         this.principal = principal;
     }
+    
+    
+    /**
+     * Constructor, Inicializa la instancia de la ventana principal
+     */
+    public RegistrosController() {
+        llenarListas();
+    }
+
+    /**
+     * Llena las listas
+     */
+    public void llenarListas() {
+        reader = new MedicoFileReader();
+        System.out.println("Medicos ser");
+        LMedico = reader.LeerArchivo("medicos.ser");
+        System.out.println("Puestos Ser");
+        reader = new PuestoFileReader();
+        LPuesto = reader.LeerArchivo("puestos.ser");
+        System.out.println("Sintomas.txt");
+        reader = new SintomasFileReader();
+        LSintomas = reader.LeerArchivo("sintomas.txt");
+    }
 
     /**
      * Method for set Items to combobox.
@@ -101,7 +124,7 @@ public class RegistrosController implements Initializable {
         cmbGenero.getItems().setAll(new String[]{"MASCULINO", "FEMENINO"});
         cmbEspecialidad.getItems().setAll(new String[]{"Medicina General", "Alergología", "Cardiología", "Angiología", "Cirugía General", "Dermatología", "Endocrinología", "Ecografía", "Hematología"});
         cmbSintomas.getItems().setAll(LSintomas);
-        llenarListaDoctores();
+        actualizarListaDoctores();
         cmbPuesto.getItems().setAll(LPuesto);
     }
 
@@ -163,7 +186,7 @@ public class RegistrosController implements Initializable {
     /**
      * Method to update Doctors List
      */
-    private void llenarListaDoctores() {
+    private void actualizarListaDoctores() {
         ListIterator<Medico> lit = LMedico.listIterator();
         while (lit.hasNext()) {
             if (lit.next().getPuesto() != null) {
@@ -213,28 +236,6 @@ public class RegistrosController implements Initializable {
             hEliminarPuesto.setVisible(true);
 
         }
-    }
-
-    /**
-     * Constructor, Inicializa la instancia de la ventana principal
-     */
-    public RegistrosController() {
-        llenarListas();
-    }
-
-    /**
-     * Llena las listas
-     */
-    public void llenarListas() {
-        reader = new MedicoFileReader();
-        System.out.println("Medicos ser");
-        LMedico = reader.LeerArchivo("medicos.ser");
-        System.out.println("Puestos Ser");
-        reader = new PuestoFileReader();
-        LPuesto = reader.LeerArchivo("puestos.ser");
-        System.out.println("Sintomas.txt");
-        reader = new SintomasFileReader();
-        LSintomas = reader.LeerArchivo("sintomas.txt");
     }
 
     /**
