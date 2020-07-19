@@ -19,18 +19,28 @@ public class GeneradorTurnos {
             case 0:
                 cant = ContadorTurnos.getCantA();
                 letra = "A";
+                ContadorTurnos.setCantA(cant+1);
+                break;
             case 1:
                 cant = ContadorTurnos.getCantB();
                 letra = "B";
+                ContadorTurnos.setCantB(cant+1);
+                break;
             case 2:
                 cant = ContadorTurnos.getCantC();
                 letra = "C";
+                ContadorTurnos.setCantC(cant+1);
+                break;
             case 3:
                 cant = ContadorTurnos.getCantD();
                 letra = "D";
+                ContadorTurnos.setCantD(cant+1);
+                break;
             case 4:
                 cant = ContadorTurnos.getCantE();
                 letra = "E";
+                ContadorTurnos.setCantE(cant+1);
+                break;
         }
         String nTurno = letra + cant;
         return new Turno(p,nTurno);

@@ -52,6 +52,8 @@ public class FXMain extends Application {
                 Optional<ButtonType> result = CloseAlert.confirmation();
                 if(result.get()==ButtonType.OK){
                     pController.getrController().serializarListas();
+                    System.exit(0);
+
                 }else{
                     e.consume();
                 }

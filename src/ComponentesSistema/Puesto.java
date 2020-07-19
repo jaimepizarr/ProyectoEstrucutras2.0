@@ -40,7 +40,7 @@ public class Puesto implements Serializable{
 
     @Override
     public String toString() {
-        return numero;
+        return numero + " - " + medico;
     }
       
     

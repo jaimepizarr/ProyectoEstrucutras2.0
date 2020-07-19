@@ -21,6 +21,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
+import java.util.ListIterator;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,8 +41,7 @@ import javafx.scene.layout.AnchorPane;
  * @author USUARIO
  */
 public class RegistrosController implements Initializable {
-    
-    
+
     //Instancia Pagina Principal
     private SitemaPrincipalController principal;
 
@@ -53,8 +53,6 @@ public class RegistrosController implements Initializable {
     private LinkedList<Puesto> LPuesto; // AGREGAR INFORMACION
     private LectorArchivos reader;
 
-    
-
     @FXML
     private ComboBox<String> cmbGenero;
     @FXML
@@ -65,7 +63,7 @@ public class RegistrosController implements Initializable {
     private ComboBox<Medico> cmbMedicoresponsable;
     @FXML
     private ComboBox<Puesto> cmbPuesto;
-    
+
     //TEXT FIELDS
     @FXML
     private TextField txtNumeroPuesto;
@@ -96,20 +94,16 @@ public class RegistrosController implements Initializable {
         this.principal = principal;
     }
 
-    
-    
-    
     /**
-     * Method for set Itemns to combobox.
+     * Method for set Items to combobox.
      */
     private void loadData() {
         cmbGenero.getItems().setAll(new String[]{"MASCULINO", "FEMENINO"});
         cmbEspecialidad.getItems().setAll(new String[]{"Medicina General", "Alergología", "Cardiología", "Angiología", "Cirugía General", "Dermatología", "Endocrinología", "Ecografía", "Hematología"});
         cmbSintomas.getItems().setAll(LSintomas);
-        cmbMedicoresponsable.getItems().setAll(LMedico);
-//        cmbPuesto.getItems().setAll(LPuesto);
+        llenarListaDoctores();
+        cmbPuesto.getItems().setAll(LPuesto);
     }
-
 
     /**
      * Method for save Doctor data.
@@ -117,10 +111,10 @@ public class RegistrosController implements Initializable {
     @FXML
     void guardarDoctor(ActionEvent event) {
         Medico medico = new Medico(txtNombreDoctor.getText(),
-                        txtApellidoDoctor.getText(),
-                        cmbEspecialidad.getValue());
+                txtApellidoDoctor.getText(),
+                cmbEspecialidad.getValue());
         LMedico.add(medico);
-        loadData();
+        cmbMedicoresponsable.getItems().addAll(LMedico);
         txtNombreDoctor.setText("");
         txtApellidoDoctor.setText("");
         cmbEspecialidad.setValue(null);
@@ -131,23 +125,26 @@ public class RegistrosController implements Initializable {
      */
     @FXML
     void guardarPaciente(ActionEvent event) {
-        Paciente p =new Paciente(txtNombrePaciente.getText(),
-        txtApellidoPaciente.getText(),
+        Paciente p = new Paciente(txtNombrePaciente.getText(),
+                txtApellidoPaciente.getText(),
                 cmbGenero.getValue(),
                 Integer.parseInt(txtEdad.getText()),
                 cmbSintomas.getValue()
         );
         p.guardarPaciente();
         Turno t = GeneradorTurnos.generarTurnoConPaciente(p);
-        
+
+        vaciarInputsPacientes();
+        principal.getTurnos().offer(t);
+        principal.asignarPuestoATurno();
+    }
+
+    public void vaciarInputsPacientes() {
         txtNombrePaciente.setText("");
         txtApellidoPaciente.setText("");
         cmbEspecialidad.setValue("");
         cmbSintomas.setValue(null);
         txtEdad.setText("");
-        principal.getTurnos().offer(t);
-        System.out.println(principal.getTurnos());
-        principal.asignarPuestoATurno();
     }
 
     /**
@@ -155,12 +152,25 @@ public class RegistrosController implements Initializable {
      */
     @FXML
     void guardarPuesto(ActionEvent event) {
-        Puesto puesto = new Puesto(txtNumeroPuesto.getText(),cmbMedicoresponsable.getValue());
+        Puesto puesto = new Puesto(txtNumeroPuesto.getText(), cmbMedicoresponsable.getValue());
         principal.getPuestosLibres().add(puesto);
         LPuesto.add(puesto);
         loadData();
         txtNumeroPuesto.setText("");
         cmbMedicoresponsable.setValue(null);
+    }
+
+    /**
+     * Method to update Doctors List
+     */
+    private void llenarListaDoctores() {
+        ListIterator<Medico> lit = LMedico.listIterator();
+        while (lit.hasNext()) {
+            if (lit.next().getPuesto() != null) {
+                lit.remove();
+            }
+        }
+        cmbMedicoresponsable.getItems().setAll(LMedico);
     }
 
     //FUNCIONALIDAD MENU REGISTROS.
@@ -204,19 +214,18 @@ public class RegistrosController implements Initializable {
 
         }
     }
-    
+
     /**
      * Constructor, Inicializa la instancia de la ventana principal
      */
     public RegistrosController() {
         llenarListas();
-        
     }
-    
+
     /**
      * Llena las listas
      */
-    public void llenarListas(){
+    public void llenarListas() {
         reader = new MedicoFileReader();
         System.out.println("Medicos ser");
         LMedico = reader.LeerArchivo("medicos.ser");
@@ -227,7 +236,6 @@ public class RegistrosController implements Initializable {
         reader = new SintomasFileReader();
         LSintomas = reader.LeerArchivo("sintomas.txt");
     }
-    
 
     /**
      *
@@ -240,12 +248,9 @@ public class RegistrosController implements Initializable {
         loadData();
         cmbSintomas.setEditable(false);
     }
-    
-    
-    public void serializarListas(){
-        System.out.println(LMedico);
-        ClassSerializer.guardarObjeto("medicos.ser",LMedico);
-        System.out.println(LPuesto);
+
+    public void serializarListas() {
+        ClassSerializer.guardarObjeto("medicos.ser", LMedico);
         ClassSerializer.guardarObjeto("puestos.ser", LPuesto);
     }
 

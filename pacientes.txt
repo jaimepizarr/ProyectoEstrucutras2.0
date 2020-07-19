@@ -1,1 +1,3 @@
-Jaime|Pizarro|MASCULINO|19|Voz ronca
+Jose|Perez|MASCULINO|35|Fiebre
+Roberto|Velastegui|MASCULINO|45|Fiebre
+Alexandra|Pizarro|FEMENINO|20|Enrochamiento de piel

@@ -35,9 +35,7 @@ import resources.MediaVideos;
  *
  * @author PC
  */
-
-    
-public class SitemaPrincipalController implements Initializable{
+public class SitemaPrincipalController implements Initializable {
 
     @FXML
     private ResourceBundle resources;
@@ -56,37 +54,36 @@ public class SitemaPrincipalController implements Initializable{
     private Queue<Puesto> puestosLibres;
     private PriorityQueue<Turno> turnos;
     private RegistrosController rController;
-    
-    
+
     private static SitemaPrincipalController singleInstance;
-    
+
     /**
-     *Constructor: Initializes the lists
+     * Constructor: Initializes the lists
      */
     public SitemaPrincipalController() {
         singleInstance = this;
         tableList = new LinkedList<>();
         puestosLibres = new LinkedList<>();
-        turnos = new PriorityQueue<>((Turno t1,Turno t2)-> 
-                t1.getPaciente().getSintoma().getPrioridad()-t2.getPaciente().getSintoma().getPrioridad());
+        turnos = new PriorityQueue<>((Turno t1, Turno t2)
+                -> t1.getPaciente().getSintoma().getPrioridad() - t2.getPaciente().getSintoma().getPrioridad());
         iniciarRegistroView();
+        iniciarPuestosVacios();
     }
-    
-    
+
     /**
      * Iniciar la vista registro y pasar como parametro este controler.
      */
-    public void iniciarRegistroView(){
+    public void iniciarRegistroView() {
         try {
             Stage anotherStage = new Stage();
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/FXMLFiles/Registros.fxml"));
             Parent root1 = loader1.load();
             rController = loader1.getController();
 
-            Scene scene1 = new Scene (root1);
+            Scene scene1 = new Scene(root1);
             System.out.println(rController);
             rController.setPrincipal(this);
-            
+
             anotherStage.setScene(scene1);
             anotherStage.show();
 
@@ -94,49 +91,43 @@ public class SitemaPrincipalController implements Initializable{
             Logger.getLogger(SitemaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     /**
      * Llenar los puestos vacíos al iniciar el programa
      */
-    public void iniciarPuestosVacíos(){
+    public void iniciarPuestosVacios() {
         PuestoFileReader reader = new PuestoFileReader();
         LinkedList<Puesto> puestosExistentes = reader.LeerArchivo("puesto.ser");
         puestosLibres.addAll(puestosExistentes);
     }
-    
+
     /**
      * Method for Singleton Design Pattern.
+     *
      * @return Single Instance of the class
      */
-    public static SitemaPrincipalController getInstance(){
-        if(singleInstance == null){
+    public static SitemaPrincipalController getInstance() {
+        if (singleInstance == null) {
             singleInstance = new SitemaPrincipalController();
         }
         return singleInstance;
     }
 
-    public RegistrosController getrController() {
-        return rController;
-    }
-
-    public void setrController(RegistrosController rController) {
-        this.rController = rController;
-    }
-    
-    
-    
-  
-
     /**
-     *Method for assigning places to a turn.
+     * Method for assigning places to a turn.
      */
     public void asignarPuestoATurno() {
+        System.out.println("HOLA");
+        System.out.println(puestosLibres);
+        System.out.println(turnos);
+
         if (puestosLibres.size() > 0 && !turnos.isEmpty()) {
+            System.out.println("HOLA");
             Turno t = turnos.poll();
             Puesto p = puestosLibres.poll();
-            TurnoPuesto tp = new TurnoPuesto(t,p);
+            TurnoPuesto tp = new TurnoPuesto(t, p);
             tableList.addFirst(tp);
-            tbTurnoPuesto.refresh();
+            tbTurnoPuesto.getItems().setAll(tableList);
         }
     }
 
@@ -163,47 +154,43 @@ public class SitemaPrincipalController implements Initializable{
     public void setTurnos(PriorityQueue<Turno> turnos) {
         this.turnos = turnos;
     }
-    
-      @FXML
-     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-         
-        
-       colTurno.setCellValueFactory(new PropertyValueFactory("turno"));
-        colPuesto.setCellValueFactory(new PropertyValueFactory("puesto"));
-        //System.out.println(url.toString());
-        //System.out.println("Prueba");
-        //mediaplayer= new MediaPlayer(new Media(this.getClass().getResource(MEDIA_URL).toExternalForm()));
-       // mediaplayer.setAutoPlay(true);
-        //media.setMediaPlayer(mediaplayer)
-     
-       
-           initMediaPlayer(media, urlsVideos);
-        
-    }
-    
-    
-    
-    
-     CircularLinkedList<String> urls= MediaVideos.readFileOfVideo();
-     Iterator<String> urlsVideos=urls.iterator();
-     
- 
 
-    private void initMediaPlayer( final MediaView mediaView, final Iterator<String> urls)       {
-        
-         if (urlsVideos.hasNext()){
-       MediaPlayer mediaPlayer = new MediaPlayer(new Media(this.getClass().getResource(urlsVideos.next()).toExternalForm()));
-        mediaPlayer.setAutoPlay(true);
-        mediaPlayer.setOnEndOfMedia(new Runnable() {
-            @Override public void run() {
-                initMediaPlayer(mediaView, (Iterator<String>) urls);
-            }
-        });
-        mediaView.setMediaPlayer(mediaPlayer);
-    } 
-      
-}
-    
-    
+    @FXML
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+        colTurno.setCellValueFactory(new PropertyValueFactory("turno"));
+        colPuesto.setCellValueFactory(new PropertyValueFactory("puesto"));
+
+        initMediaPlayer(media, urlsVideos);
+
+    }
+
+    CircularLinkedList<String> urls = MediaVideos.readFileOfVideo();
+    Iterator<String> urlsVideos = urls.iterator();
+
+    private void initMediaPlayer(final MediaView mediaView, final Iterator<String> urls) {
+
+        if (urlsVideos.hasNext()) {
+            MediaPlayer mediaPlayer = new MediaPlayer(new Media(this.getClass().getResource(urlsVideos.next()).toExternalForm()));
+            mediaPlayer.setAutoPlay(true);
+            mediaPlayer.setOnEndOfMedia(new Runnable() {
+                @Override
+                public void run() {
+                    initMediaPlayer(mediaView, (Iterator<String>) urls);
+                }
+            });
+            mediaView.setMediaPlayer(mediaPlayer);
+        }
+
+    }
+
+    public RegistrosController getrController() {
+        return rController;
+    }
+
+    public void setrController(RegistrosController rController) {
+        this.rController = rController;
+    }
+
 }

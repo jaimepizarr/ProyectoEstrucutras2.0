@@ -53,9 +53,17 @@ public class Medico implements Serializable{
         this.especialidad = especialidad;
     }
 
+    public Puesto getPuesto() {
+        return puesto;
+    }
+
+    public void setPuesto(Puesto puesto) {
+        this.puesto = puesto;
+    }
+
     @Override
     public String toString() {
-        return nombre + " " + apellido +" - " +especialidad;
+        return nombre + " " + apellido;
     }
     
 

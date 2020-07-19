@@ -82,10 +82,10 @@ public class Paciente implements Serializable{
     }
     
     public void guardarPaciente(){
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter("pacientes.txt"))){
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("pacientes.txt",true))){
             bw.write(this.getNombre()+"|"+this.getApellido()+
                     "|"+this.getGenero()+"|"+this.getEdad()+
-                    "|"+this.getSintoma().getNombre());
+                    "|"+this.getSintoma().getNombre()+"\n");
         }catch (FileNotFoundException ex) {
             Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
