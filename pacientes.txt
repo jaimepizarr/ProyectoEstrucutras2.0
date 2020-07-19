@@ -36,3 +36,4 @@ Joseph|Avila|MASCULINO|10|falta de aire
 Sofia|Asanza|MASCULINO|20|Resfrio
 Erick|kol|MASCULINO|5|Resfrio
 hola|as|MASCULINO|20|Tos
+Jaime|Pizarro|MASCULINO|20|Vomitos reiterados

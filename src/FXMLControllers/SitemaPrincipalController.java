@@ -23,6 +23,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -188,10 +190,11 @@ public class SitemaPrincipalController implements Initializable {
 
     @FXML
     private void mostrarPantalla(MouseEvent event) {
-        Turno turnoSelect = tbTurnoPuesto.getSelectionModel().getSelectedItem().getTurno();
-        Puesto puestoSelect = tbTurnoPuesto.getSelectionModel().getSelectedItem().getPuesto();
-        TurnoPuesto deleteElement = SitemaPrincipalController.getInstance().tbTurnoPuesto.getSelectionModel().getSelectedItem();
         try {
+            Turno turnoSelect = tbTurnoPuesto.getSelectionModel().getSelectedItem().getTurno();
+            Puesto puestoSelect = tbTurnoPuesto.getSelectionModel().getSelectedItem().getPuesto();
+            TurnoPuesto deleteElement = SitemaPrincipalController.getInstance().tbTurnoPuesto.getSelectionModel().getSelectedItem();
+        
             Stage anotherStage = new Stage();
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/FXMLFiles/AtenderPaciente.fxml"));
             Parent root1 = loader1.load();
@@ -205,7 +208,14 @@ public class SitemaPrincipalController implements Initializable {
             pantallaAternderPaciente.setPrincipal(this);
             anotherStage.setScene(scene1);
             anotherStage.show();
-        } catch (IOException ex) {
+        }catch(NullPointerException ex){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error Alert");
+            alert.setHeaderText("No ha seleccionado un turno o la tabla está vacía");
+            alert.setContentText("Añada pacientes para llenar la tabla o de clic en un turno existente.");
+            alert.show();
+        } 
+        catch (IOException ex) {
             Logger.getLogger(SitemaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
