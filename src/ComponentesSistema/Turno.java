@@ -25,8 +25,8 @@ public class Turno implements Serializable{
     
     /**
      * 
-     * @param prioridad
-     * @return 
+     * @param prioridad int
+     * @return String
      */
     public static String getLetraPrioridad(int prioridad){
         return asignacion.get(prioridad);

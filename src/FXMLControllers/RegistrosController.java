@@ -178,6 +178,7 @@ public class RegistrosController implements Initializable {
 
     /**
      * Method for save Puesto data.
+     * @param event
      */
     @FXML
     void guardarPuesto(ActionEvent event) {

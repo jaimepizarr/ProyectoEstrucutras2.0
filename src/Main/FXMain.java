@@ -31,7 +31,7 @@ import javafx.stage.Stage;
 public class FXMain extends Application {
     
     /**
-     *
+     * Comienzo del Sistema de principal
      * @param primaryStage
      * @throws IOException
      */
@@ -61,7 +61,7 @@ public class FXMain extends Application {
     
     
     /**
-     *
+     * Argumentos
      * @param args
      */
     public static void main(String[] args) {

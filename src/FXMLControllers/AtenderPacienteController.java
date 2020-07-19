@@ -74,6 +74,7 @@ public class AtenderPacienteController implements Initializable {
 
     /**
      * Method for saving patient atencion data.
+     * @param event
      */
     @FXML
     void guardarAtencion(ActionEvent event) {
@@ -89,8 +90,8 @@ public class AtenderPacienteController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url url
+     * @param rb ResourceBundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -137,9 +138,8 @@ public class AtenderPacienteController implements Initializable {
         this.txtApellidoPaciente = txtApellidoPaciente;
     }
 
-    /**
-     * Method for save Receta & Diagnostico data.
-     */
+    
+     
     public void guardarDatos() {
         try ( BufferedWriter bw = new BufferedWriter(new FileWriter("receta.diagnostico.txt", true))) {
             bw.write(txtNombrePaciente.getText() + txtApellidoPaciente.getText() + "|" + txtAreaReceta.getText()
