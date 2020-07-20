@@ -39,3 +39,11 @@ hola|as|MASCULINO|20|Tos
 Jaime|Pizarro|MASCULINO|20|Vomitos reiterados
 Josep|h|MASCULINO|1|falta de aire
 Joseph|Avila|MASCULINO|20|Fiebre
+Jaime|Pizarro|MASCULINO|19|Tos
+Jorge|Mendoza|MASCULINO|20|Dolor de corazon
+Nicole|Mendoza|FEMENINO|20|Vomitos reiterados
+Jose|Villegas|MASCULINO|30|Tos
+Joshua|Velez|MASCULINO|34|Vomitos reiterados
+Juan|Sanchez|MASCULINO|20|Tos
+Julio|Mendoza|MASCULINO|20|Fiebre
+Nicole|Mendoza|FEMENINO|21|Vomitos reiterados
