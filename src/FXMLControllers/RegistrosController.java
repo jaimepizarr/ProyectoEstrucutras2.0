@@ -113,12 +113,9 @@ public class RegistrosController implements Initializable {
      */
     public void llenarListas() {
         reader = new MedicoFileReader();
-        System.out.println("Medicos ser");
         LMedico = reader.LeerArchivo("medicos.ser");
-        System.out.println("Puestos Ser");
         reader = new PuestoFileReader();
         LPuesto = reader.LeerArchivo("puestos.ser");
-        System.out.println("Sintomas.txt");
         reader = new SintomasFileReader();
         LSintomas = reader.LeerArchivo("sintomas.txt");
     }
@@ -199,7 +196,6 @@ public class RegistrosController implements Initializable {
         ListIterator<Medico> lit = LMedico.listIterator();
         while (lit.hasNext()) {
             if (lit.next().getPuesto() != null) {
-                System.out.println("F");
                 lit.remove();
             }
         }

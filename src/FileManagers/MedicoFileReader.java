@@ -35,9 +35,8 @@ public class MedicoFileReader extends LectorArchivos {
             if(f.exists()){
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream("medicos.ser"));      
                 Object nuevo = ois.readObject();
-                if(nuevo!=null) System.out.println("HEY");
-                lista = (LinkedList<Medico>) nuevo;
-                System.out.println(lista);
+                if(nuevo!=null) lista = (LinkedList<Medico>) nuevo;
+                
                 ois.close();
             }
             

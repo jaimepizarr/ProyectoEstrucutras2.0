@@ -83,7 +83,6 @@ public class SitemaPrincipalController implements Initializable {
             rController = loader1.getController();
 
             Scene scene1 = new Scene(root1);
-            System.out.println(rController);
             rController.setPrincipal(this);
 
             anotherStage.setScene(scene1);

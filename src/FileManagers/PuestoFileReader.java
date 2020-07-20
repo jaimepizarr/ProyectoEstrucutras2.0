@@ -37,7 +37,6 @@ public class PuestoFileReader extends LectorArchivos {
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
                 Object nuevo = ois.readObject();
                 if(nuevo!=null){
-                    System.out.println("YEA");
                     lista = (LinkedList<Puesto>) nuevo;
                 }
                 ois.close();

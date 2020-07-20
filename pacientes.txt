@@ -38,3 +38,4 @@ Erick|kol|MASCULINO|5|Resfrio
 hola|as|MASCULINO|20|Tos
 Jaime|Pizarro|MASCULINO|20|Vomitos reiterados
 Josep|h|MASCULINO|1|falta de aire
+Joseph|Avila|MASCULINO|20|Fiebre
