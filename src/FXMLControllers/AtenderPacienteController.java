@@ -77,13 +77,13 @@ public class AtenderPacienteController implements Initializable {
      * @param event
      */
     @FXML
-    void guardarAtencion(ActionEvent event) {
-        TurnoPuesto deleteElement =
-                principal.tbTurnoPuesto.getSelectionModel().getSelectedItem();
-        principal.tbTurnoPuesto.getItems().remove(deleteElement);
-        principal.puestosLibres.offer(deleteElement.getPuesto());
-        principal.asignarPuestoATurno();
+   void guardarAtencion(ActionEvent event) {
+        TurnoPuesto deleteElement = SitemaPrincipalController.getInstance().tbTurnoPuesto.getSelectionModel().getSelectedItem();
+        SitemaPrincipalController.getInstance().tbTurnoPuesto.getItems().remove(deleteElement);
+        SitemaPrincipalController.getInstance().tbTurnoPuesto.refresh();
+        SitemaPrincipalController.getInstance().puestosLibres.offer(deleteElement.getPuesto());
         guardarDatos();
+        SitemaPrincipalController.getInstance().asignarPuestoATurno();
         vaciarInputsAtenderPaciente();
         
     }
